@@ -24,12 +24,12 @@ module BaseballCms
 
     config.generators do |g|
       g.template_engine  :haml
+      g.skip_routes      true
       g.test_framework   :rspec, fixture: false
       g.view_specs       false
       g.controller_specs false
       g.helper           false
-      g.stylesheets      false
-      g.javascripts      false
+      g.assets           false
     end
   end
 end
