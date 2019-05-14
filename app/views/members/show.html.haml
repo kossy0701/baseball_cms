@@ -1,0 +1,25 @@
+- @page_title = "会員の詳細"
+%h1= @page_title
+.toolbar= link_to "ユーザー情報の編集", edit_member_path(@member)
+%table.attr
+  %tr
+    %th{width: "150"} 背番号
+    %td= @member.number
+  %tr
+    %th ユーザー名
+    %td= @member.name
+  %tr
+    %th 氏名
+    %td= @member.full_name
+  %tr
+    %th 性別
+    %td= @member.sex == 1 ? "男" : "女"
+  %tr
+    %th 誕生日
+    %td= @member.birthday&.strftime("%Y年%m月%d日")
+  %tr
+    %th メールアドレス
+    %td= @member.email
+  %tr
+    %th 管理者
+    %td= @member.administrator? ? "○" : "－"
