@@ -34,12 +34,19 @@ class MembersController < ApplicationController
       flash[:notice] = '会員情報を更新しました。'
       redirect_to members_path
     else
-      flash[:alert].now = '会員情報の更新に失敗しました。'
+      flash.now[:alert] = '会員情報の更新に失敗しました。'
       render :edit
     end
   end
 
   def destroy
+    if @member.destroy
+      flash[:notice] = '会員を削除しました。'
+      redirect_to members_path
+    else
+      flash.now[:alert] = '会員の削除に失敗しました。'
+      render :new
+    end
   end
 
   def search
