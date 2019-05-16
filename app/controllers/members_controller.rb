@@ -12,7 +12,7 @@ class MembersController < ApplicationController
   end
 
   def create
-    member = Member.new(member_permit_params)
+    member = Member.new member_permit_params
     if member.save
       flash[:notice] = '会員を登録しました。'
       redirect_to members_path
@@ -29,7 +29,7 @@ class MembersController < ApplicationController
   end
 
   def update
-    @member.assign_attributes params[:member]
+    @member.assign_attributes member_permit_params
     if @member.save
       flash[:notice] = '会員情報を更新しました。'
       redirect_to members_path
