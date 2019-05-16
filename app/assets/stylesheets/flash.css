@@ -1,0 +1,12 @@
+.notice {
+  border: 1px solid blue;
+  padding: 3px;
+  background-color: #ccf;
+}
+
+.alert {
+  border: 1px solid red;
+  padding: 3px;
+  background-color: #FF9999;
+}
+

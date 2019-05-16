@@ -1,0 +1,26 @@
+= form_with model: @member, method: :post, local: true do |f|
+  %table.attr
+    %tr
+      %th= f.label :number, "背番号"
+      %td= f.text_field :number, size: 8
+    %tr
+      %th= f.label :name, "ユーザー名"
+      %td= f.text_field :name
+    %tr
+      %th= f.label :full_name, "氏名"
+      %td= f.text_field :full_name
+    %tr
+      %th 性別
+      %td
+        = f.radio_button :sex, 1
+        = f.label "男"
+        = f.radio_button :sex, 2
+        = f.label "女"
+    %tr
+      %th= f.label :birthday, "誕生日", for: "member_birthday_1i"
+      %td= f.date_select :birthday, start_year: 1940, end_year: Time.current.year, use_month_numbers: true
+    %tr
+      %th= f.label :email, "メールアドレス"
+      %td= f.text_field :email
+  = f.submit
+
