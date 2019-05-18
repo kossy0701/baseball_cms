@@ -185,8 +185,8 @@ form#login-form label {
   text-align: center;
 }
 
-form#login-form input[type="text"],
-form#login-form input[type="password"] {
+form#login-form input[type='text'],
+form#login-form input[type='password'] {
   width: 120px;
 }
 

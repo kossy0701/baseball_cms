@@ -1,10 +1,10 @@
-- @page_title = "会員名簿"
-= form_with url: '/members/search', local: true, method: :get, class: "search" do |f|
+- @page_title = '会員名簿'
+= form_with url: '/members/search', local: true, method: :get, class: 'search' do |f|
   = f.text_field 'q', placeholder: '名前を入力してください。'
-  = f.submit "検索"
+  = f.submit '検索'
 
 %h1= @page_title
-.toolbar= link_to "会員の新規登録", new_member_path
+.toolbar= link_to '会員の新規登録', new_member_path
 - if @members.present?
   %table.list
     %thead
@@ -16,12 +16,12 @@
     %tbody
       - @members.each do |member|
         %tr
-          %td{style: "text-align: right"}= member.number
+          %td{style: 'text-align: right'}= member.number
           %td= link_to member.name, member
           %td= member.full_name
           %td
-            = link_to "編集", member_path(member)
+            = link_to '編集', member_path(member)
             |
-            = link_to "削除", "/members/#{member.id}", method: :delete, data: { confirm: "本当に削除しますか?" }
+            = link_to '削除', '/members/#{member.id}', method: :delete, data: { confirm: '本当に削除しますか?' }
 - else
   %p 会員情報がありません。

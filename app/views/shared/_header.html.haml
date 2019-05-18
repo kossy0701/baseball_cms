@@ -1,8 +1,14 @@
-= image_tag "logo.png", size: "272x48", alt: "Morning Glory"
+= image_tag 'logo.png', size: '272x48', alt: 'Baseball CMS'
+- if current_member
+  %ul.account-menu
+    = menu_link_to current_member.name + 'さん', account_path(current_member)
+    |
+    = menu_link_to 'ログアウト', :session, method: :delete, data: { confirm: 'ログアウトしますか？' }
 %nav.menubar
   %ul
-    = menu_link_to "TOP", root_path
-    = menu_link_to "ニュース", "#"
-    = menu_link_to "ブログ", "#"
-    = menu_link_to "会員名簿", members_path
-    = menu_link_to "管理ページ", "#"
+    = menu_link_to 'TOP', root_path
+    = menu_link_to 'ニュース', '#'
+    = menu_link_to 'ブログ', '#'
+    - if current_member
+      = menu_link_to '会員名簿', :members
+      = menu_link_to '管理ページ', '#'
