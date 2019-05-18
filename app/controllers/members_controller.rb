@@ -12,8 +12,8 @@ class MembersController < ApplicationController
   end
 
   def create
-    member = Member.new member_permit_params
-    if member.save
+    @member = Member.new member_permit_params
+    if @member.save
       flash[:notice] = '会員を登録しました。'
       redirect_to members_path
     else

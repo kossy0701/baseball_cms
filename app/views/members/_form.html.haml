@@ -1,13 +1,14 @@
 = form_with model: @member, local: true do |f|
+  = render 'shared/errors', obj: @member
   %table.attr
     %tr
-      %th= f.label :number, "背番号"
+      %th= f.label :number
       %td= f.text_field :number, size: 8
     %tr
-      %th= f.label :name, "ユーザー名"
+      %th= f.label :name
       %td= f.text_field :name
     %tr
-      %th= f.label :full_name, "氏名"
+      %th= f.label :full_name
       %td= f.text_field :full_name
     %tr
       %th 性別
@@ -17,10 +18,10 @@
         = f.radio_button :sex, 2
         = f.label "女"
     %tr
-      %th= f.label :birthday, "誕生日", for: "member_birthday_1i"
+      %th= f.label :birthday, for: "member_birthday_1i"
       %td= f.date_select :birthday, start_year: 1940, end_year: Time.current.year, use_month_numbers: true
     %tr
-      %th= f.label :email, "メールアドレス"
+      %th= f.label :email
       %td= f.text_field :email
   = f.submit
 
