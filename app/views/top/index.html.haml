@@ -1,5 +1,5 @@
-- 5.times do |x|
-  %h2 見出し
+- @articles.each do |article|
+  %h2= article.title
   %p
-    ここに本文が入ります。ここに本文が入ります。ここに本文が入ります。ここに本文が入ります。
-    = link_to 'もっと読む', '#'
+    = truncate article.body, length: 80
+    = link_to "もっと読む", article_path(article)

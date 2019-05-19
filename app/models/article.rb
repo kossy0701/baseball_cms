@@ -4,4 +4,23 @@ class Article < ApplicationRecord
   validates :title, length: { maximum: 80 }
   validates :body, length: { maximum: 2000 }
 
+  scope :open_to_the_public, -> { where(member_only: false) }
+
+  scope :visible, -> do
+    now = Time.now
+    where('released_at <= ?', now).where('expired_at > ? OR expired_at IS NULL' , now)
+  end
+
+  def no_expiration
+    expired_at.nil?
+  end
+
+  def no_expiration=(val)
+    @no_expiration = val.in?([true, '1'])
+  end
+
+  before_validation do
+    self.expired_at = nil if @no_expiration
+  end
+
 end
