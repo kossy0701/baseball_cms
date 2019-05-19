@@ -8,7 +8,8 @@ FactoryBot.define do
     full_name { Faker::Japanese::Name.name }
     email { Faker::Internet.email }
     birthday { Random.rand(s1..s2) }
-    sex { [0, 1].sample }
+    sex { ['male', 'female'].sample }
+    prefecture_id { rand(1..47) }
     administrator { false }
     password { password }
     password_confirmation { password }
