@@ -23,4 +23,6 @@ class Member < ApplicationRecord
   attr_accessor :current_password
   validates :password, presence: { if: :current_password }
 
+  enum sex: { male: 1, female: 2 }
+
 end
