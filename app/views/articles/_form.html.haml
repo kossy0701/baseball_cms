@@ -1,0 +1,26 @@
+= render 'shared/errors', obj: @article
+%table.attr
+  %tr
+    %th= form.label :title
+    %td= form.text_field :title, size: 20
+  %tr
+    %th= form.label :body
+    %td= form.text_area :body, rows: 10, cols: 45
+  %tr
+    %th= form.label :released_at, for: 'article_released_at_1i'
+    %td= form.datetime_select :released_at, start_year: 2000, end_year: Time.now.year + 1, use_month_numbers: true
+  -# %tr
+  -#   %th= form.label :expired_at, for: 'article_expired_at_1i'
+  -#   %td
+  -#     %div
+  -#       = form.check_box :no_expiration
+  -#       = form.label :no_expiration
+  -#     %div
+  -#       = form.datetime_select :expired_at,                  |
+  -#         start_year: 2000, end_year: Time.current.year + 1, |
+  -#         use_month_numbers: true                            |
+  %tr
+    %th= Article.human_attribute_name(:member_only)
+    %td
+      = form.check_box :member_only
+      = form.label :member_only

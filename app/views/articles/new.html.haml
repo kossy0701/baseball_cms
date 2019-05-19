@@ -1,0 +1,5 @@
+- @page_title = 'ニュース記事の新規登録'
+%h1= @page_title
+= form_for @article do |form|
+  = render 'form', form: form
+  %div= form.submit

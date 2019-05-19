@@ -29,8 +29,7 @@ class MembersController < ApplicationController
   end
 
   def update
-    @member.assign_attributes member_permit_params
-    if @member.save
+    if @member.update member_permit_params
       flash[:notice] = '会員情報を更新しました。'
       redirect_to members_path
     else
@@ -66,7 +65,7 @@ class MembersController < ApplicationController
   end
 
   def member_permit_params
-    params.require(:member).permit(:number, :name, :full_name, :gender, :birthday, :email)
+    params.require(:member).permit(:number, :name, :full_name, :gender, :birthday, :prefecture_id, :email, :password, :password_confirmation)
   end
 
 end

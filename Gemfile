@@ -22,6 +22,7 @@ gem 'kaminari'
 gem 'kaminari-i18n'
 gem 'jquery-rails'
 gem 'acts_as_list'
+gem 'active_hash'
 gem 'google-cloud-storage', '~> 1.8', require: false
 
 group :development, :test do

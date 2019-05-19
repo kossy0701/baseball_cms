@@ -1,0 +1,22 @@
+- @page_title = 'ニュース記事一覧'
+= form_with url: '/articles/search', local: true, method: :get, class: 'search' do |f|
+  = f.text_field 'q', placeholder: 'タイトルを入力してください。'
+  = f.submit '検索'
+%h1= @page_title
+.toolbar= link_to '新規作成', new_article_path
+- if @articles.present?
+  %table.list
+    %thead
+      %tr
+        %th タイトル
+        %th 日時
+        %th 操作
+    %tbody
+      - @articles.each do |article|
+        %tr
+          %td= link_to article.title, article
+          %td= article.released_at.strftime('%Y/%m/%d %H:%M')
+          %td
+            = link_to '編集', edit_article_path(article)
+            |
+            = link_to '削除', "/articles/#{article.id}", method: :delete, data: { confirm: '本当に削除しますか?' }

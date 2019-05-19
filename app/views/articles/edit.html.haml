@@ -1,0 +1,6 @@
+- @page_title = 'ニュース記事の編集'
+%h1= @page_title
+%p= link_to '記事の詳細に戻る', @article
+= form_for @article do |form|
+  = render 'form', form: form
+  %div= form.submit

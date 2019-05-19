@@ -15,6 +15,9 @@
     %th 誕生日
     %td= @member.birthday&.strftime('%Y年%m月%d日')
   %tr
+    %th 出身地
+    %td= @member.prefecture.name
+  %tr
     %th メールアドレス
     %td= @member.email
   %tr
