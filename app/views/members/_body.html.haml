@@ -10,10 +10,10 @@
     %td= @member.full_name
   %tr
     %th 性別
-    %td= @member.sex == 1 ? '男' : '女'
+    %td= @member.show_sex
   %tr
     %th 誕生日
-    %td= @member.birthday&.strftime('%Y年%m月%d日')
+    %td= @member.show_birthday
   %tr
     %th 出身地
     %td= @member.prefecture.name
@@ -22,4 +22,4 @@
     %td= @member.email
   %tr
     %th 管理者
-    %td= @member.administrator? ? '○' : '－'
+    %td= @member.administrator?
