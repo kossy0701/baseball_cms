@@ -12,9 +12,9 @@
   %tr
     %th 性別
     %td
-      = form.radio_button :sex, 1
+      = form.radio_button :sex, :male
       = form.label '男'
-      = form.radio_button :sex, 2
+      = form.radio_button :sex, :female
       = form.label '女'
   %tr
     %th= form.label :birthday, for: 'member_birthday_1i'
