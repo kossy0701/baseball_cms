@@ -1,7 +1,7 @@
-names = ['Taro', 'Jiro', 'Hana', 'John', 'Mike', 'Sophy', 'Bill', 'Alex', 'Mary', 'Tom', 'Joe', 'Smith']
-fnames = ["佐藤", "鈴木", "高橋", "田中", '山田', '山本']
-gnames = ["太郎", "次郎", "花子", '一郎', '和子', '三郎']
-0.upto(11) do |idx|
+names = %w(Taro Jiro Hana John Mike Sophy Bill Alex Mary Tom)
+fnames = ["佐藤", "鈴木", "高橋", "田中"]
+gnames = ["太郎", "次郎", "花子"]
+0.upto(9) do |idx|
   Member.create(
     number: idx + 10,
     name: names[idx],
@@ -11,7 +11,22 @@ gnames = ["太郎", "次郎", "花子", '一郎', '和子', '三郎']
     sex: [1, 1, 2][idx % 3],
     prefecture_id: rand(1..47),
     administrator: (idx == 0),
-    password: "12345678",
-    password_confirmation: "12345678"
+    password: "asagao!",
+    password_confirmation: "asagao!"
+  )
+end
+
+0.upto(29) do |idx|
+  Member.create(
+    number: idx + 20,
+    name: "John#{idx + 1}",
+    full_name: "John Doe#{idx + 1}",
+    email: "John#{idx+1}@example.com",
+    birthday: "1981-12-01",
+    sex: 1,
+    prefecture_id: rand(1..47),
+    administrator: false,
+    password: "password",
+    password_confirmation: "password"
   )
 end

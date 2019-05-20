@@ -23,4 +23,10 @@ class Article < ApplicationRecord
     self.expired_at = nil if @no_expiration
   end
 
+  validate do
+    if expired_at && expired_at < released_at
+      errors.add(:expired_at, :expired_at_too_old)
+    end
+  end
+
 end

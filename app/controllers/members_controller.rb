@@ -4,7 +4,7 @@ class MembersController < ApplicationController
 
   def index
     @member_search_form = MemberSearchForm.new member_search_params
-    @members = Member.order 'number'
+    @members = Member.order('number').page(params[:page]).per(15)
   end
 
   def new
@@ -51,6 +51,7 @@ class MembersController < ApplicationController
   def search
     @member_search_form = MemberSearchForm.new member_search_params
     @members = @member_search_form.search params[:q]
+    @members = @members.page(params[:page]).per(15)
     render :index
   end
 

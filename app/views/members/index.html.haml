@@ -23,5 +23,6 @@
             = link_to '編集', member_path(member)
             |
             = link_to '削除', "/members/#{member.id}", method: :delete, data: { confirm: '本当に削除しますか?' }
+  = paginate @members
 - else
   %p 会員情報がありません。
