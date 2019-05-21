@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def index
-    @articles = Article.all.order released_at: :desc
+    @articles = Article.all.order(released_at: :desc).page(params[:page]).per(15)
     @articles.open_to_the_public unless current_member
 
     unless current_member&.administrator?
@@ -60,7 +60,7 @@ class ArticlesController < ApplicationController
   private
 
   def set_article
-    @article = Article.find params[:id]
+    @article = Article.find(params[:id]).decorate
   end
 
   def article_permit_params

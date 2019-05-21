@@ -11,10 +11,10 @@
     %td= simple_format(@article.body)
   %tr
     %th 掲載開始日時
-    %td= @article.released_at.strftime('%Y/%m/%d %H:%M')
+    %td= @article.released_date
   %tr
     %th 掲載終了日時
-    %td= @article.expired_at.try(:strftime, '%Y/%m/%d %H:%M')
+    %td= @article.expired_date
   %tr
     %th 会員限定
-    %td= @article.member_only? ? '○' : '－'
+    %td= @article.member_only?

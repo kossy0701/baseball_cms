@@ -27,16 +27,4 @@ class Member < ApplicationRecord
   validates :email, email: { allow_blank: true }
   validates :password, presence: { if: :current_password }
 
-  def show_sex
-    sex == 'male' ? '男' : '女'
-  end
-
-  def administrator?
-    administrator == true  ? '○' : '－'
-  end
-
-  def show_birthday
-    birthday&.strftime('%Y年%m月%d日')
-  end
-
 end

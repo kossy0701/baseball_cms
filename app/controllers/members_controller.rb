@@ -58,7 +58,7 @@ class MembersController < ApplicationController
   private
 
   def set_member
-    @member = Member.find params[:id]
+    @member = Member.find(params[:id]).decorate
   end
 
   def member_search_params
