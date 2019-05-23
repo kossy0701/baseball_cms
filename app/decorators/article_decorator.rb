@@ -9,7 +9,7 @@ class ArticleDecorator < Draper::Decorator
     expired_at.try(:strftime, '%Y/%m/%d %H:%M')
   end
 
-  def member_only?
+  def member_only_display
     member_only == true ? '○' : '－'
   end
 

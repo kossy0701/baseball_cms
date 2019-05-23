@@ -5,7 +5,7 @@ class MemberDecorator < Draper::Decorator
     sex == 'male' ? '男' : '女'
   end
 
-  def administrator?
+  def administrate_display
     administrator == true  ? '○' : '－'
   end
 

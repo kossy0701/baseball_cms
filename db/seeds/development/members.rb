@@ -11,8 +11,8 @@ gnames = ["太郎", "次郎", "花子"]
     sex: [1, 1, 2][idx % 3],
     prefecture_id: rand(1..47),
     administrator: (idx == 0),
-    password: "asagao!",
-    password_confirmation: "asagao!"
+    password: "12345678",
+    password_confirmation: "12345678"
   )
 end
 
@@ -26,7 +26,7 @@ end
     sex: 1,
     prefecture_id: rand(1..47),
     administrator: false,
-    password: "password",
-    password_confirmation: "password"
+    password: "12345678",
+    password_confirmation: "12345678"
   )
 end
