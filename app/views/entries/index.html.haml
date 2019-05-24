@@ -1,0 +1,14 @@
+- @page_title = @member ? @member.name + "さんのブログ" : "会員のブログ"
+%h1= @page_title
+- if current_member
+  .toolbar= link_to "ブログ記事の作成", new_entry_path
+- if @entries.present?
+  - @entries.each do |entry|
+    %h2= entry.title
+    %p
+      = truncate(entry.body, length: 80)
+      = link_to "もっと読む", entry_path(entry)
+    = render "footer", entry: entry
+  = paginate @entries
+- else
+  %p 記事がありません。

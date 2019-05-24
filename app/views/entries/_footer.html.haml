@@ -1,0 +1,11 @@
+%ul.entry-footer
+  - if current_member
+    %li= EntryDecorator.status_text(entry.status)
+    - if current_member == entry.author
+      = menu_link_to "編集", edit_entry_path(entry)
+      = menu_link_to "削除", "/entries/#{entry.id}", method: :delete, data: { confirm: "本当に削除しますか？" }
+  %li
+    write by
+    = link_to entry.author.name, member_entries_path(entry.author)
+  %li
+    = entry.posted_at.strftime("%Y/%m/%d %H:%M")
