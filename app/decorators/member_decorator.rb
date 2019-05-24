@@ -13,4 +13,9 @@ class MemberDecorator < Draper::Decorator
     birthday&.strftime('%Y年%m月%d日')
   end
 
+  def age
+    date = Date.today
+    ((date.strftime('%Y%m%d').to_i - birthday.strftime('%Y%m%d').to_i) / 10000).to_s + '歳'
+  end
+
 end

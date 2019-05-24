@@ -3,8 +3,8 @@ FactoryBot.define do
   s2 = Date.parse("1999/12/31")
   password = Faker::Internet.password(8)
   factory :member do
-    number { rand(10..50) }
-    name { ['Taro', 'Joe', 'Tom', 'Hana', 'Smith', 'Carry', 'Pasta', 'Burg', 'Shoe', 'Kiith'].sample }
+    number { rand(1..99) }
+    name { ['Taro', 'Joe', 'Tom', 'Hana', 'Smith', 'Carry', 'Pasta', 'Burg', 'Shoe', 'Kiith', 'Michel', 'Adam', 'Ive', 'Sadam', 'Rovin', 'Kevin'].sample }
     full_name { Faker::Japanese::Name.name }
     email { Faker::Internet.email }
     birthday { Random.rand(s1..s2) }

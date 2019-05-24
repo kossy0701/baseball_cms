@@ -52,5 +52,14 @@ RSpec.describe MemberDecorator, type: :decorator do
         expect(subject.show_birthday).to have_content '年'
       end
     end
+
+    describe 'age' do
+      let(:member) { create :member }
+      subject { member.decorate }
+
+      it '年齢が表示される' do
+        expect(subject.age).to have_content '歳'
+      end
+    end
   end
 end
