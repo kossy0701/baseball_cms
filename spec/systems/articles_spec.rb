@@ -10,7 +10,18 @@ describe 'ニュース記事管理機能', type: :system do
     click_button 'ログイン'
   end
 
-  describe '新規作成機能' do
+  describe 'ニュース記事一覧表示機能' do
+    let(:article) { create :article }
+    let(:login_user) { member }
+
+    it '記事の一覧が表示される' do
+      title = article.title
+      visit articles_path
+      expect(page).to have_content title
+    end
+  end
+
+  describe 'ニュース記事新規作成機能' do
     let(:login_user) { member }
 
     before do
