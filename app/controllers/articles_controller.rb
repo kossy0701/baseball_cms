@@ -54,6 +54,7 @@ class ArticlesController < ApplicationController
   def search
     @article_search_form = ArticleSearchForm.new article_search_params
     @articles = @article_search_form.search params[:q]
+    @articles = @articles.order(released_at: :desc).page(params[:page]).per(15)
     render :index
   end
 
