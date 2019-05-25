@@ -1,5 +1,5 @@
 - @page_title = "ブログ記事の新規作成"
 %h1= @page_title
-= form_for @entry do |form|
+= form_with model: @entry do |form|
   = render "form", form: form
   %div= form.submit

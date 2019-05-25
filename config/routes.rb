@@ -15,7 +15,10 @@ Rails.application.routes.draw do
   resources :articles do
     get 'search', on: :collection
   end
-  resources :entries
+
+  resources :entries do
+    resources :images, controller: 'entry_images'
+  end
 
   resource :session, only: [:create, :destroy]
   resource :account, only: [:show, :edit, :update]

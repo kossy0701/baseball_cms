@@ -1,0 +1,8 @@
+= render "shared/errors", obj: @image
+%table.attr
+  %tr
+    %th= form.label :new_data
+    %td= form.file_field :new_data
+  %tr
+    %th= form.label :alt_text
+    %td= form.text_field :alt_text, size: 40
