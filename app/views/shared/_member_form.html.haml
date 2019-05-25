@@ -1,7 +1,7 @@
 = render 'shared/errors', obj: @member
 %table.attr
   %tr
-    %th= form.label :number
+    %th{width: "200"}= form.label :number
     %td= form.text_field :number, size: 8
   %tr
     %th= form.label :name

@@ -6,6 +6,10 @@
   - articles.each do |article|
     %li= link_to article.title, article_path(article)
 %h2 会員のブログ
+- entries = Entry.readable_for(current_member).order(posted_at: :desc).limit(5)
 %ul
-  - 5.times do |i|
-    %li= link_to "ブログの見出し", "#"
+  - entries.each do |entry|
+    %li
+      = link_to entry.title, entry_path(entry)
+      write by
+      =link_to entry.author.name, entries_path(entry.author)

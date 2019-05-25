@@ -1,2 +1,7 @@
-%h1 Entries#show
-%p Find me in app/views/entries/show.html.haml
+- @page_title = @entry.title + " - " + @entry.author.name + "さんのブログ"
+%h1
+  = @entry.author.name
+  さんのブログ
+%h2= @entry.title
+= simple_format(@entry.body)
+= render "footer", entry: @entry

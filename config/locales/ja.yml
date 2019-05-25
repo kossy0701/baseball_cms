@@ -37,6 +37,7 @@ ja:
       messages:
         invalid_member_name: は半角英数字で入力してください
         wrong: が正しくありません
+        empty: を入力してください
         expired_at_too_old: は掲載開始日より新しい日時にしてください
         taken: は既に存在しています
         not_a_number: は数値で入力してください

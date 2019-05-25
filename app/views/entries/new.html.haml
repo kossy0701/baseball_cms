@@ -1,2 +1,5 @@
-%h1 Entries#new
-%p Find me in app/views/entries/new.html.haml
+- @page_title = "ブログ記事の新規作成"
+%h1= @page_title
+= form_for @entry do |form|
+  = render "form", form: form
+  %div= form.submit

@@ -7,7 +7,7 @@ class EntryDecorator < Draper::Decorator
   end
 
   def self.status_options
-    STATUS_VALUES.map { |status| [status_text(status), status] }
+    Entry::STATUS_VALUES.map { |status| [status_text(status), status] }
   end
 
 end
