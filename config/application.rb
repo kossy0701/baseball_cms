@@ -21,6 +21,9 @@ module BaseballCms
     config.i18n.default_locale = :ja
     config.active_record.default_timezone = :local
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
+    config.exceptions_app = ->(env) do
+      ErrorsController.action(:show).call(env)
+    end
 
     config.generators do |g|
       g.template_engine  :haml

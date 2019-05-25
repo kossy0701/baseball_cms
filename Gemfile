@@ -24,8 +24,7 @@ gem 'jquery-rails'
 gem 'acts_as_list'
 gem 'active_hash'
 gem 'draper'
-gem 'google-cloud-storage', '~> 1.8', require: false
-
+gem
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-rails'

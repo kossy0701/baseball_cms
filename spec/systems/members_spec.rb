@@ -96,11 +96,11 @@ describe 'メンバー管理機能', type: :system, js: true do
     let(:login_user) { member }
     !let(:other_member) { create :member }
 
-    it '「会員を削除しました。」と表示される' do
+    it '「会員を削除しました」と表示される' do
       visit members_path
       click_on '削除'
       page.driver.browser.switch_to.alert.accept
-      expect(page).to have_selector '.notice', text: '会員を削除しました。'
+      expect(page).to have_selector '.notice', text: '会員を削除しました'
     end
   end
 end
