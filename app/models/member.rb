@@ -5,6 +5,8 @@ class Member < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
   has_many :entries, dependent: :destroy
+  has_one_attached :profile_picture
+  attribute :new_profile_picture
 
   has_secure_password
 
@@ -25,5 +27,11 @@ class Member < ApplicationRecord
   validates :sex, presence: true, inclusion: { in: ['male', 'female'] }
   validates :email, email: { allow_blank: true }
   validates :password, presence: { if: :current_password }
+
+  before_save do
+    if new_profile_picture
+      self.profile_picture = new_profile_picture
+    end
+  end
 
 end

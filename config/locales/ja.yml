@@ -6,6 +6,7 @@ ja:
       entry: ブログ記事
     attributes:
       member:
+        new_profile_picture: プロフィール画像
         number: 背番号
         name: ユーザー名
         full_name: 氏名
