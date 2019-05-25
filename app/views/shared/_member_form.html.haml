@@ -24,15 +24,13 @@
   %tr
     %th= Member.human_attribute_name(:sex)
     %td
-      = form.radio_button :sex, 1
+      = form.radio_button :sex, :male
       = form.label :sex_1
-      = form.radio_button :sex, 2
+      = form.radio_button :sex, :female
       = form.label :sex_2
   %tr
     %th= form.label :birthday, for: "member_birthday_1i"
-    %td= form.date_select :birthday,                    |
-        start_year: 1940, end_year: Time.current.year, |
-        use_month_numbers: true                        |
+    %td= form.date_select :birthday, start_year: 1940, end_year: Time.current.year, use_month_numbers: true
   %tr
     %th= form.label :email
     %td= form.text_field :email

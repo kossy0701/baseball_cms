@@ -41,7 +41,7 @@ class EntryImagesController < ApplicationController
   def destroy
     @image = @entry.images.find params[:id]
     @image.destroy
-    redirect_to entry_image_path, notice: '画像を削除しました'
+    redirect_to entry_images_path, notice: '画像を削除しました'
   end
 
   private

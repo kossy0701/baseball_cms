@@ -3,6 +3,9 @@
   %tr
     %th= form.label :new_data
     %td= form.file_field :new_data
+    .userProfileImg
+      #userImgPreview.userImgPreview
+        %img#thumbnail.userImgPreview_content{accept: "image/*", src: "", style: 'width: 100px'}
   %tr
     %th= form.label :alt_text
     %td= form.text_field :alt_text, size: 40
