@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new article_permit_params
     if @article.save
-      redirect_to articles_path, notice: 'ニュース記事を登録しました。'
+      redirect_to articles_path, notice: 'ニュース記事を登録しました'
     else
       render :new
     end
@@ -40,7 +40,7 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update article_permit_params
-      redirect_to articles_path, notice: 'ニュース記事を更新しました。'
+      redirect_to articles_path, notice: 'ニュース記事を更新しました'
     else
       render :edit
     end
@@ -48,7 +48,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article.destroy
-    redirect_to articles_path, notice: 'ニュース記事を削除しました。'
+    redirect_to articles_path, notice: 'ニュース記事を削除しました'
   end
 
   def search
@@ -65,7 +65,7 @@ class ArticlesController < ApplicationController
   end
 
   def article_permit_params
-    params.require(:article).permit(:title, :body, :released_at, :member_only)
+    params.require(:article).permit(:title, :body, :released_at, :no_expiration, :expired_at, :member_only)
   end
 
   def article_search_params

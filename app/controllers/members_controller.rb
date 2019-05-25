@@ -14,10 +14,10 @@ class MembersController < ApplicationController
   def create
     @member = Member.new member_permit_params
     if @member.save
-      flash[:notice] = '会員を登録しました。'
+      flash[:notice] = '会員を登録しました'
       redirect_to members_path
     else
-      flash.now[:alert] = '会員登録に失敗しました。'
+      flash.now[:alert] = '会員登録に失敗しました'
       render :new
     end
   end
@@ -30,20 +30,20 @@ class MembersController < ApplicationController
 
   def update
     if @member.update member_permit_params
-      flash[:notice] = '会員情報を更新しました。'
+      flash[:notice] = '会員情報を更新しました'
       redirect_to members_path
     else
-      flash.now[:alert] = '会員情報の更新に失敗しました。'
+      flash.now[:alert] = '会員情報の更新に失敗しました'
       render :edit
     end
   end
 
   def destroy
     if @member.destroy
-      flash[:notice] = '会員を削除しました。'
+      flash[:notice] = '会員を削除しました'
       redirect_to members_path
     else
-      flash.now[:alert] = '会員の削除に失敗しました。'
+      flash.now[:alert] = '会員の削除に失敗しました'
       render :new
     end
   end
@@ -66,7 +66,9 @@ class MembersController < ApplicationController
   end
 
   def member_permit_params
-    params.require(:member).permit(:number, :name, :full_name, :sex, :birthday, :prefecture_id, :email, :password, :password_confirmation)
+    attrs = [:number, :name, :full_name, :sex, :birthday, :prefecture_id, :email, :administrator]
+    attrs << [:password, :password_confirmation] if params[:action] == 'create'
+    params.require(:member).permit(attrs)
   end
 
 end
