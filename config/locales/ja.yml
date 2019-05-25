@@ -7,6 +7,7 @@ ja:
     attributes:
       member:
         new_profile_picture: プロフィール画像
+        remove_profile_picture: 画像を削除
         number: 背番号
         name: ユーザー名
         full_name: 氏名
@@ -47,3 +48,4 @@ ja:
         invalid: は不正な値です
         too_long: は%{count}文字以内で入力してください
         too_short: は%{count}文字以上で入力してください
+        invalid_image_type: にはJPEG、PNG、GIF、PNG形式の画像を指定してください。
