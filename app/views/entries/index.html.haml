@@ -2,7 +2,10 @@
 %h1= @page_title
 
 - if current_member
-  .toolbar= link_to 'ブログ記事の作成', new_entry_path
+  .toolbar
+    = menu_link_to 'ブログ記事の作成', new_entry_path
+    |
+    = menu_link_to '投票した記事', voted_entries_path
 - if @entries.present?
   - @entries.decorate.each do |entry|
     %h2= entry.title

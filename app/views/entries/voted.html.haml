@@ -1,0 +1,14 @@
+- @page_title = '投票した記事'
+%h1= @page_title
+
+- if @entries.present?
+  %ul
+    - @entries.each do |entry|
+      %li
+        = link_to entry.title, entry
+        by
+        = link_to entry.author.name, member_entries_path(entry.author)
+        = link_to '削除', unlike_entry_path(entry), method: :patch, data: { confirm: '削除しますか?' }
+  = paginate @entries
+- else
+  %p 記事がありません。

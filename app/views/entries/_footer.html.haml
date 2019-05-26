@@ -10,3 +10,8 @@
     = link_to entry.author.name, member_entries_path(entry.author)
   %li
     = entry.posted_date
+  - if (count = entry.votes.count) > 0
+    %li
+      %span.vote
+        ★#{count}
+
