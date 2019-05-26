@@ -28,5 +28,15 @@ RSpec.describe EntryDecorator, type: :decorator do
         end
       end
     end
+
+    describe 'posted_date' do
+      let(:member) { create :member }
+      let(:entry) { create :entry, member_id: member.id }
+      subject { entry.decorate }
+
+      it '%Y/%m/%d %H:%Mの形式で表示される' do
+        expect(subject.posted_date).to have_content '/'
+      end
+    end
   end
 end
