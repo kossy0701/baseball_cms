@@ -16,7 +16,7 @@ describe 'ニュース記事管理機能', type: :system do
   describe 'ニュース記事検索機能' do
     let(:login_user) { member }
 
-    it '記事の検索結果が表示される' do
+    it 'ニュース記事の検索結果が表示される' do
       article_1.save
       article_2.save
       visit articles_path
@@ -30,7 +30,7 @@ describe 'ニュース記事管理機能', type: :system do
     let(:article) { create :article }
     let(:login_user) { member }
 
-    it '記事の一覧が表示される' do
+    it 'ニュース記事の一覧が表示される' do
       title = article.title
       visit articles_path
       expect(page).to have_content title
@@ -52,7 +52,7 @@ describe 'ニュース記事管理機能', type: :system do
       click_button '登録する'
     end
 
-    it '作成したレビューが表示される' do
+    it '作成したニュース記事が表示される' do
       expect(page).to have_content 'Perfect Human'
     end
   end

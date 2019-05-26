@@ -15,7 +15,7 @@ describe 'ブログ管理機能', type: :system do
   describe 'ブログ一覧表示機能' do
     let(:login_user) { member }
 
-    it '記事の一覧が表示される' do
+    it 'ブログの一覧が表示される' do
       title = entry_1.title
       visit entries_path
       expect(page).to have_content title
@@ -38,7 +38,7 @@ describe 'ブログ管理機能', type: :system do
       click_button '登録する'
     end
 
-    it '作成したレビューが表示される' do
+    it '作成したブログが表示される' do
       expect(page).to have_content 'Perfect Human'
     end
   end
