@@ -1,6 +1,8 @@
 - @page_title = 'アカウント情報の編集'
 %h1= @page_title
-.toolbar= link_to 'マイアカウントに戻る', :account
-= form_with model: @member, scope: :account, url: account_path do |form|
+
+.toolbar= link_to 'マイアカウントに戻る', account_path
+
+= form_with model: @member, scope: :account, url: account_path, local: true, class: 'account-form' do |form|
   = render 'shared/member_form', form: form
-  %div= form.submit
+  .account-form-submit= form.submit

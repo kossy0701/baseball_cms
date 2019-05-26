@@ -1,14 +1,15 @@
-= render "shared/errors", obj: @entry
+= render 'shared/errors', obj: @entry
+
 %table.attr
   %tr
-    %th{width: "80"}= form.label :title
+    %th{width: '80'}= form.label :title
     %td= form.text_field :title, size: 50
   %tr
     %th= form.label :body
     %td= form.text_area :body, rows: 10, cols: 45
   %tr
-    %th= form.label :posted_at, for: "entry_posted_at_1i"
-    %td= form.datetime_select :posted_at, start_year: 2000, end_year: Time.current.year + 1, use_month_numbers: true
+    %th= form.label :posted_at, for: 'entry_posted_at_1i'
+    %td= form.datetime_select :posted_at, start_year: 2000, end_year: Time.now.year + 1, use_month_numbers: true
   %tr
     %th= form.label :status
     %td= form.select :status, EntryDecorator.status_options

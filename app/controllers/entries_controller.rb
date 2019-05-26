@@ -30,6 +30,7 @@ class EntriesController < ApplicationController
 
   def show
     @entry = Entry.readable_for(current_member).find params[:id]
+    @entry = @entry.decorate
   end
 
   def edit

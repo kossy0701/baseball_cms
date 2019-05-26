@@ -1,4 +1,4 @@
-= render "shared/login_form" unless current_member
+= render 'shared/login_form' unless current_member
 %h2 最新ニュース
 - articles = Article.visible.order(released_at: :desc).limit(5)
 - articles = articles.open_to_the_public unless current_member

@@ -1,11 +1,12 @@
 - @page_title = 'ニュース記事一覧'
 
-= form_with url: '/articles/search', local: true, method: :get, class: 'search' do |f|
-  = f.text_field 'q', placeholder: 'タイトルを入力してください。'
-  = f.submit '検索'
+= form_with url: '/articles/search', local: true, method: :get, class: 'article-search-form' do |f|
+  = f.text_field 'q', size: 25, placeholder: 'タイトルを入力してください', class: 'article-search-field'
+  = f.submit '検索', class: 'article-search-form-submit'
 
 %h1= @page_title
 .toolbar= link_to '新規作成', new_article_path
+
 - if @articles.present?
   %table.list
     %thead

@@ -10,4 +10,8 @@ class EntryDecorator < Draper::Decorator
     Entry::STATUS_VALUES.map { |status| [status_text(status), status] }
   end
 
+  def posted_date
+    posted_at.strftime('%Y/%m/%d %H:%M')
+  end
+
 end

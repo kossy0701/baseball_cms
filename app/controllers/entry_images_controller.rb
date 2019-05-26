@@ -4,7 +4,7 @@ class EntryImagesController < ApplicationController
   before_action :set_entry_image
 
   def index
-    @images = @entry.images.order :id
+    @images = @entry.images.order :position
   end
 
   def new
@@ -42,6 +42,19 @@ class EntryImagesController < ApplicationController
     @image = @entry.images.find params[:id]
     @image.destroy
     redirect_to entry_images_path, notice: '画像を削除しました'
+  end
+
+  def move_higher
+    @image = @entry.images.find params[:id]
+    @image.move_higher
+    redirect_back fallback_location: entry_images_path
+  end
+
+  def move_lower
+    @image = @entry.images.find params[:id]
+    @image.move_lower
+    redirect_back fallback_location: entry_images_path
+
   end
 
   private

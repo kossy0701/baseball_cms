@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   end
 
   resources :entries do
-    resources :images, controller: 'entry_images'
+    resources :images, controller: 'entry_images' do
+      patch :move_higher, :move_lower, on: :member
+    end
   end
 
   resource :session, only: [:create, :destroy]

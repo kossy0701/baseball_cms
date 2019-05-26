@@ -1,7 +1,8 @@
-- @page_title = "ブログ記事への画像追加"
+- @page_title = 'ブログ記事への画像追加'
 %h1= @page_title
+
 %h2= @entry.title
-- url = entry_images_path(@entry, @image)
-= form_with model: @image, as: "image", url: url do |form|
-  = render "form", form: form
-  %div= form.submit
+
+= form_with model: @image, as: 'image', url: entry_images_path(@entry, @image), class: 'entry-image-form' do |form|
+  = render 'form', form: form
+  .entry-image-form-submit= form.submit

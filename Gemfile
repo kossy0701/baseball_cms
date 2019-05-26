@@ -24,6 +24,7 @@ gem 'jquery-rails'
 gem 'acts_as_list'
 gem 'active_hash'
 gem 'draper'
+gem 'aws-sdk-s3', require: false
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

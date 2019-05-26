@@ -1,5 +1,6 @@
 - @page_title = 'ニュース記事の新規登録'
 %h1= @page_title
-= form_for @article do |form|
+
+= form_with model: @article, local: true, class: 'article-form' do |form|
   = render 'form', form: form
-  %div= form.submit
+  .article-form-submit= form.submit

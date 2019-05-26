@@ -1,6 +1,8 @@
-- @page_title = "ブログ記事の編集"
+- @page_title = 'ブログ記事の編集'
 %h1= @page_title
-.toolbar= link_to "記事の表示に戻る", @entry
-= form_with model: @entry do |form|
-  = render "form", form: form
-  %div= form.submit
+
+.toolbar= link_to '記事の表示に戻る', entry_path(@entry)
+
+= form_with model: @entry, local: true, class: 'entry-form' do |form|
+  = render 'form', form: form
+  .entry-form-submit= form.submit

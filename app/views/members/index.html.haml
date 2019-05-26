@@ -1,10 +1,12 @@
 - @page_title = '会員名簿'
-= form_with url: '/members/search', local: true, method: :get, class: 'search' do |f|
+
+= form_with url: '/members/search', local: true, method: :get, class: 'member-search-form' do |f|
   = f.text_field 'q', placeholder: '名前を入力してください。'
-  = f.submit '検索'
+  = f.submit '検索', class: 'member-search-form-submit'
 
 %h1= @page_title
 .toolbar= link_to '会員の新規登録', new_member_path
+
 - if @members.present?
   %table.list
     %thead
