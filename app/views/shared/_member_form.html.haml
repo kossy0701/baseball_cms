@@ -1,7 +1,7 @@
 = render 'shared/errors', obj: @member
 %table.attr
   %tr
-    %th= form.label :new_profile_picture
+    %th{width: '200'}= form.label :new_profile_picture
     %td
       %div= form.file_field :new_profile_picture
       = image_tag '', id: 'thumbnail', accept: 'image/*', style: 'width: 100px'
@@ -30,12 +30,18 @@
     %th= form.label :birthday, for: 'member_birthday_1i'
     %td= form.date_select :birthday, start_year: 1940, end_year: Time.current.year, use_month_numbers: true
   %tr
+    %th= form.label :prefecture_id
+    %td= form.collection_select :prefecture_id, Prefecture.all, :id, :name
+  %tr
     %th= form.label :email
     %td= form.text_field :email
   - if @member.new_record?
     %tr
       %th= Member.human_attribute_name(:password)
-      %td= form.text_field :password
+      %td= form.password_field :password
+    %tr
+      %th= Member.human_attribute_name(:password_confirmation)
+      %td= form.password_field :password_confirmation
   - if controller.kind_of?(MembersController)
     %tr
       %th= Member.human_attribute_name(:administrator)

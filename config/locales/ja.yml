@@ -15,6 +15,7 @@ ja:
         sex_1: 男
         sex_2: 女
         birthday: 誕生日
+        prefecture_id: 出身地
         email: メールアドレス
         administrator: 管理者
         current_password: 現在のパスワード

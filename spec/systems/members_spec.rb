@@ -48,8 +48,8 @@ describe 'メンバー管理機能', type: :system, js: true do
       select '1', from: 'member_birthday_3i'
       select '東京都', from: '出身地'
       fill_in 'メールアドレス', with: 'nobuchan@example.com'
-      fill_in '新しいパスワード', with: '12345678'
-      fill_in '新しいパスワードの確認', with: '12345678'
+      fill_in 'member_password', with: '12345678'
+      fill_in 'member_password_confirmation', with: '12345678'
       click_button '登録する'
     end
 
