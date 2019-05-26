@@ -1,9 +1,10 @@
 class AccountsController < ApplicationController
 
   before_action :login_required
-  before_action :set_member
+  before_action :set_member, only: [:edit, :update]
 
   def show
+    @member = current_member.decorate
   end
 
   def edit
@@ -22,7 +23,7 @@ class AccountsController < ApplicationController
   private
 
   def set_member
-    @member = current_member.decorate
+    @member = current_member
   end
 
   def account_params
