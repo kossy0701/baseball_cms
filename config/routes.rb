@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   get "internal_server_error" => "top#internal_server_error"
 
 
-  resources :members do
-    resources :entries, only: :index
+  resources :members, only: [:index, :show] do
     get 'search', on: :collection
+    resources :entries, only: :index
   end
 
   resources :articles do
@@ -30,6 +30,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root 'top#index'
+    resources :members do
+      get 'search', on: :collection
+    end
   end
 
 end
