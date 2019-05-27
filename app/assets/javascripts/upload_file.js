@@ -1,9 +1,9 @@
 $(document).on("change", "#member_new_profile_picture", function(e) {
-  var reader;
+  let reader;
   if (e.target.files.length) {
     reader = new FileReader;
     reader.onload = function(e) {
-      var thumbnail;
+      let thumbnail;
       thumbnail = document.getElementById('thumbnail');
       thumbnail.setAttribute('src', e.target.result);
     };
@@ -12,11 +12,11 @@ $(document).on("change", "#member_new_profile_picture", function(e) {
 });
 
 $(document).on("change", "#account_new_profile_picture", function(e) {
-  var reader;
+  let reader;
   if (e.target.files.length) {
     reader = new FileReader;
     reader.onload = function(e) {
-      var thumbnail;
+      let thumbnail;
       thumbnail = document.getElementById('thumbnail');
       thumbnail.setAttribute('src', e.target.result);
     };
@@ -25,11 +25,11 @@ $(document).on("change", "#account_new_profile_picture", function(e) {
 });
 
 $(document).on("change", "#entry_image_new_data", function(e) {
-  var reader;
+  let reader;
   if (e.target.files.length) {
     reader = new FileReader;
     reader.onload = function(e) {
-      var thumbnail;
+      let thumbnail;
       thumbnail = document.getElementById('thumbnail');
       thumbnail.setAttribute('src', e.target.result);
     };
