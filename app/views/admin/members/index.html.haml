@@ -1,0 +1,30 @@
+- @page_title = '会員名簿'
+
+= form_with url: 'members/search', local: true, method: :get, class: 'admin-member-search-form' do |f|
+  = f.text_field 'q', placeholder: '名前を入力してください。'
+  = f.submit '検索', class: 'admin-member-search-form-submit'
+
+%h1= @page_title
+.toolbar= link_to '会員の新規登録', new_admin_member_path
+
+- if @members.present?
+  %table.list
+    %thead
+      %tr
+        %th 背番号
+        %th ユーザー名
+        %th 氏名
+        %th 操作
+    %tbody
+      - @members.each do |member|
+        %tr
+          %td{style: 'text-align: right'}= member.number
+          %td= link_to member.name, admin_member_path(member)
+          %td= member.full_name
+          %td
+            = link_to '編集', admin_member_path(member)
+            |
+            = link_to '削除', "admin/members/#{member.id}", method: :delete, data: { confirm: '本当に削除しますか?' }
+  = paginate @members
+- else
+  %p 会員情報がありません。

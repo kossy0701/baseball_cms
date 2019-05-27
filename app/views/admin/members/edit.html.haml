@@ -1,6 +1,6 @@
 - @page_title = '会員情報の編集'
 %h1= @page_title
 
-= form_with model: @member, local: true, class: 'member-form' do |form|
+= form_with model: [:admin, @member], local: true, class: 'member-form' do |form|
   = render 'shared/member_form', form: form
   .member-form-submit= form.submit

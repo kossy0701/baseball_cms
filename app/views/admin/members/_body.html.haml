@@ -1,0 +1,33 @@
+%table.attr
+  %tr
+    %th プロフィール画像
+    %td
+      - if @member.profile_picture.attached?
+        = image_tag @member.profile_picture.variant(resize: '128x128')
+  %tr
+    %th{width: '150'} 背番号
+    %td= @member.number
+  %tr
+    %th ユーザー名
+    %td= @member.name
+  %tr
+    %th 氏名
+    %td= @member.full_name
+  %tr
+    %th 性別
+    %td= @member.show_sex
+  %tr
+    %th 誕生日
+    %td= @member.show_birthday
+  %tr
+    %th 年齢
+    %td= @member.age
+  %tr
+    %th 出身地
+    %td= @member.prefecture.name
+  %tr
+    %th メールアドレス
+    %td= @member.email
+  %tr
+    %th 管理者
+    %td= @member.administrate_display

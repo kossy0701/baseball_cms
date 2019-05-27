@@ -48,3 +48,10 @@
       %td
         = form.check_box :administrator
         = form.label :administrator
+  - if controller.kind_of?(Admin::MembersController)
+    %tr
+      %th= Member.human_attribute_name(:administrator)
+      %td
+        = form.check_box :administrator
+        = form.label :administrator
+
