@@ -1,4 +1,5 @@
 class ArticleDecorator < Draper::Decorator
+
   delegate_all
 
   def released_date
