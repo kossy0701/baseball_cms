@@ -7,11 +7,13 @@
     %thead
       %tr
         %th ユーザー名
+        %th 日時
         %th ログ
     %tbody
       - @activity_logs.decorate.each do |log|
         %tr
           %td= log.performer.full_name + ' さん'
+          %td= log.performed_date
           %td= log.log_type_view
   = paginate @activity_logs
 - else
