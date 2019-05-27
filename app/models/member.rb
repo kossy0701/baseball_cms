@@ -7,6 +7,7 @@ class Member < ApplicationRecord
   has_many :entries, dependent: :destroy
   has_many :votes, dependent: :destroy
   has_many :voted_entries, through: :votes, source: :entry
+  has_many :activity_logs, as: :performer, dependent: :destroy
 
   has_one_attached :profile_picture
 

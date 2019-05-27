@@ -1,0 +1,18 @@
+- @page_title = 'アクティビティログ'
+
+%h1= @page_title
+
+- if @activity_logs.present?
+  %table.list
+    %thead
+      %tr
+        %th ユーザー名
+        %th ログ
+    %tbody
+      - @activity_logs.decorate.each do |log|
+        %tr
+          %td= log.performer.full_name + ' さん'
+          %td= log.log_type_view
+  = paginate @activity_logs
+- else
+  %p アクティビティログがありません

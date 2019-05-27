@@ -33,6 +33,7 @@ Rails.application.routes.draw do
     resources :members do
       get 'search', on: :collection
     end
+    resources :activity_logs, only: :index
   end
 
 end
