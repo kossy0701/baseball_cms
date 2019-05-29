@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
   def show
     articles = Article.visible
     articles = articles.open_to_the_public unless current_member
-    @article = articles.find(params[:id])
+    @article = Article.find(params[:id]).decorate
   end
 
   def search

@@ -10,7 +10,7 @@ class EntriesController < ApplicationController
       @entries = Entry.all
     end
 
-    @entries = @entries.readable_for(current_member).order(posted_at: :desc).page(params[:page]).per(3)
+    @entries = @entries.readable_for(current_member).order(posted_at: :desc).page(params[:page]).per(5)
   end
 
   def new
