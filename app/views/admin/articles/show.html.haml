@@ -1,0 +1,22 @@
+- @page_title = @article.title
+
+%h1= @article.title
+
+- if current_member
+  .toolbar= link_to '編集', edit_admin_article_path(@article)
+%table.attr
+  %tr
+    %th{width: '100'} タイトル
+    %td= @article.title
+  %tr
+    %th 本文
+    %td= simple_format(@article.body)
+  %tr
+    %th 掲載開始日時
+    %td= @article.released_date
+  %tr
+    %th 掲載終了日時
+    %td= @article.expired_date
+  %tr
+    %th 会員限定
+    %td= @article.member_only_display

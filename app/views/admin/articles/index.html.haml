@@ -1,10 +1,11 @@
 - @page_title = 'ニュース記事一覧'
 
-= form_with url: search_articles_path, local: true, method: :get, class: 'article-search-form' do |f|
+= form_with url: 'articles/search', local: true, method: :get, class: 'article-search-form' do |f|
   = f.text_field 'q', size: 25, placeholder: 'タイトルを入力してください', class: 'article-search-field'
   = f.submit '検索', class: 'article-search-form-submit'
 
 %h1= @page_title
+.toolbar= link_to '新規作成', new_admin_article_path
 
 - if @articles.present?
   %table.list
@@ -12,9 +13,14 @@
       %tr
         %th タイトル
         %th 日時
+        %th 操作
     %tbody
       - @articles.decorate.each do |article|
         %tr
-          %td= link_to article.title, article_path(article)
+          %td= link_to article.title, admin_article_path(article)
           %td= article.released_date
+          %td
+            = link_to '編集', edit_admin_article_path(article)
+            |
+            = link_to '削除', "/admin/articles/#{article.id}", method: :delete, data: { confirm: '本当に削除しますか?' }
   = paginate @articles

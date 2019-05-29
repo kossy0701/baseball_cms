@@ -1,6 +1,6 @@
 - @page_title = '会員名簿'
 
-= form_with url: 'members/search', local: true, method: :get, class: 'admin-member-search-form' do |f|
+= form_with url: search_admin_members_path, local: true, method: :get, class: 'admin-member-search-form' do |f|
   = f.text_field 'q', placeholder: '名前を入力してください。'
   = f.submit '検索', class: 'admin-member-search-form-submit'
 
@@ -24,7 +24,7 @@
           %td
             = link_to '編集', admin_member_path(member)
             |
-            = link_to '削除', "admin/members/#{member.id}", method: :delete, data: { confirm: '本当に削除しますか?' }
+            = link_to '削除', "/admin/members/#{member.id}", method: :delete, data: { confirm: '本当に削除しますか?' }
   = paginate @members
 - else
   %p 会員情報がありません。
