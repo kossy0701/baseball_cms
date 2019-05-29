@@ -1,54 +1,15 @@
 class ArticlesController < ApplicationController
 
-  before_action :login_required, except: [:index, :show]
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
-
   def index
-    @articles = Article.all.order(released_at: :desc).page(params[:page]).per(15)
-    @articles.open_to_the_public unless current_member
-
-    unless current_member&.administrator?
-      @articles = @articles.visible
-    end
-  end
-
-  def new
-    @article = Article.new
-  end
-
-  def create
-    @article = Article.new article_permit_params
-    if @article.save
-      redirect_to articles_path, notice: 'ニュース記事を登録しました'
-    else
-      render :new
-    end
+    @articles = Article.visible.order(released_at: :desc)
+    @articles = @articles.open_to_the_public unless current_member
+    @articles = @articles.page(params[:page]).per(5)
   end
 
   def show
-    articles = Article.all
-
+    articles = Article.visible
     articles = articles.open_to_the_public unless current_member
-
-    unless current_member&.administrator?
-      articles = articles.visible
-    end
-  end
-
-  def edit
-  end
-
-  def update
-    if @article.update article_permit_params
-      redirect_to articles_path, notice: 'ニュース記事を更新しました'
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    @article.destroy
-    redirect_to articles_path, notice: 'ニュース記事を削除しました'
+    @article = articles.find(params[:id])
   end
 
   def search
@@ -59,14 +20,6 @@ class ArticlesController < ApplicationController
   end
 
   private
-
-  def set_article
-    @article = Article.find(params[:id]).decorate
-  end
-
-  def article_permit_params
-    params.require(:article).permit(:title, :body, :released_at, :no_expiration, :expired_at, :member_only)
-  end
 
   def article_search_params
     params.permit(:title)
