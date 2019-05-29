@@ -7,7 +7,7 @@ class ArticleDecorator < Draper::Decorator
   end
 
   def expired_date
-    expired_at.try(:strftime, '%Y/%m/%d %H:%M')
+    expired_at&.strftime('%Y/%m/%d %H:%M')
   end
 
   def member_only_display
