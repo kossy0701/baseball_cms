@@ -5,7 +5,10 @@
   = f.submit '検索', class: 'admin-member-search-form-submit'
 
 %h1= @page_title
-.toolbar= link_to '会員の新規登録', new_admin_member_path
+.toolbar
+  = link_to '会員の新規登録', new_admin_member_path
+  |
+  = link_to 'CSV ダウンロード', admin_members_path(format: :csv)
 
 - if @members.present?
   %table.list

@@ -4,8 +4,14 @@ class Admin::MembersController < Admin::Base
   before_action :set_member, only: [:show, :edit, :update, :destroy]
 
   def index
+    @all_member = Member.all
     @member_search_form = MemberSearchForm.new member_search_params
     @members = Member.order('number').page(params[:page]).per(15)
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @all_member.generate_csv, filename: "member-#{Time.zone.now.strftime('%Y%M%D%S')}.csv" }
+    end
   end
 
   def new

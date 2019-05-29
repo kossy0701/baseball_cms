@@ -1,3 +1,5 @@
+require 'csv'
+
 class Member < ApplicationRecord
 
   attr_accessor :current_password
@@ -54,6 +56,27 @@ class Member < ApplicationRecord
 
   def votable_for?(entry)
     entry && entry.author != self && !votes.exists?(entry_id: entry.id)
+  end
+
+  def self.csv_attributes
+  end
+
+  def self.generate_csv
+    data = ['背番号', 'ユーザー名', '氏名', 'メールアドレス', '誕生日', '性別', '出身地']
+    CSV.generate(headers: true) do |csv|
+      csv << data
+      all.decorate.each do |member|
+        csv << [
+          member.number,
+          member.name,
+          member.full_name,
+          member.email,
+          member.birthday,
+          member.show_sex,
+          member.prefecture.name
+        ]
+      end
+    end
   end
 
 end
