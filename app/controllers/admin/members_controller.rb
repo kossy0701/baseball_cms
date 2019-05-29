@@ -1,5 +1,6 @@
 class Admin::MembersController < Admin::Base
 
+  before_action :admin_login_required
   before_action :set_member, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -39,12 +40,13 @@ class Admin::MembersController < Admin::Base
   end
 
   def destroy
-    if @member.destroy
+    unless @member.id == current_member.id
+      @member.destroy
       flash[:notice] = '会員を削除しました'
       redirect_to admin_members_path
     else
-      flash.now[:alert] = '会員の削除に失敗しました'
-      render :new
+      flash.now[:alert] = '自分のアカウントは削除できません'
+      render :show
     end
   end
 
