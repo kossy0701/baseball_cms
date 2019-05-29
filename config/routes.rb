@@ -2,17 +2,13 @@ Rails.application.routes.draw do
 
   root 'top#index'
   get 'about' => 'top#about', as: 'about'
-  get "bad_request" => "top#bad_request"
-  get "forbidden" => "top#forbidden"
-  get "internal_server_error" => "top#internal_server_error"
-
 
   resources :members, only: [:index, :show] do
     get 'search', on: :collection
     resources :entries, only: :index
   end
 
-  resources :articles do
+  resources :articles, only: [:index, :show] do
     get 'search', on: :collection
   end
 
@@ -31,6 +27,9 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'top#index'
     resources :members do
+      get 'search', on: :collection
+    end
+    resources :articles do
       get 'search', on: :collection
     end
     resources :activity_logs, only: :index
