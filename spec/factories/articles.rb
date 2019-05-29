@@ -4,6 +4,6 @@ FactoryBot.define do
     body { Faker::Lorem.sentences }
     released_at { (Date.today - 1) }
     expired_at { (Date.today + 1) }
-    member_only { [true, false].sample }
+    member_only { false }
   end
 end
