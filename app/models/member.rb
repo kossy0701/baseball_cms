@@ -58,9 +58,6 @@ class Member < ApplicationRecord
     entry && entry.author != self && !votes.exists?(entry_id: entry.id)
   end
 
-  def self.csv_attributes
-  end
-
   def self.generate_csv
     data = ['背番号', 'ユーザー名', '氏名', 'メールアドレス', '誕生日', '性別', '出身地']
     CSV.generate(headers: true) do |csv|

@@ -1,6 +1,8 @@
 - @page_title = 'アクティビティログ'
 
 %h1= @page_title
+.toolbar
+  = link_to 'CSV ダウンロード', admin_activity_logs_path(format: :csv)
 
 - if @activity_logs.present?
   %table.list
