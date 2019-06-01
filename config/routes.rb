@@ -28,11 +28,14 @@ Rails.application.routes.draw do
     root 'top#index'
     resources :members do
       get 'search', on: :collection
+      get 'download', on: :collection, as: 'download'
     end
     resources :articles do
       get 'search', on: :collection
     end
-    resources :activity_logs, only: :index
+    resources :activity_logs, only: :index do
+      get 'download', on: :collection, as: 'download'
+    end
   end
 
 end

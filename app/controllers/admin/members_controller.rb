@@ -2,15 +2,11 @@ class Admin::MembersController < Admin::Base
 
   before_action :admin_login_required
   before_action :set_member, only: [:show, :edit, :update, :destroy]
+  after_action :create_download_csv_log, only: :download
 
   def index
     @member_search_form = MemberSearchForm.new member_search_params
     @members = Member.order('number').page(params[:page]).per(15)
-
-    respond_to do |format|
-      format.html
-      format.csv { send_data Member.generate_csv, filename: "member-#{Time.zone.now.strftime('%Y%M%D%S')}.csv" }
-    end
   end
 
   def new
@@ -62,6 +58,12 @@ class Admin::MembersController < Admin::Base
     render :index
   end
 
+  def download
+    respond_to do |format|
+      format.csv { send_data Member.generate_csv, filename: "member-#{Time.zone.now.strftime('%Y%M%D%S')}.csv" }
+    end
+  end
+
   private
 
   def set_member
@@ -76,6 +78,10 @@ class Admin::MembersController < Admin::Base
     attrs = [:new_profile_picture, :remove_profile_picture, :number, :name, :full_name, :sex, :birthday, :prefecture_id, :email, :administrator]
     attrs << [:password, :password_confirmation] if params[:action] == 'create'
     params.require(:member).permit(attrs)
+  end
+
+  def create_download_csv_log
+    ActivityLog.create! log_type: :member_csv, performer: current_member, performed_at: Time.now
   end
 
 end

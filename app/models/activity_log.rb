@@ -4,9 +4,10 @@ class ActivityLog < ApplicationRecord
 
   belongs_to :performer, polymorphic: true
 
-  enum log_type: [:login, :logout]
+  enum log_type: [:login, :logout, :member_csv, :log_csv]
 
-  validates :log_type, presence: true, inclusion: { in: ['login', 'logout'] }
+  validates :performer, presence: true
+  validates :log_type, presence: true, inclusion: { in: ['login', 'logout', 'member_csv', 'log_csv'] }
   validates :performed_at, presence: true
 
   def self.generate_csv
