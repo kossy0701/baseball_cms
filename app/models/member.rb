@@ -26,7 +26,7 @@ class Member < ApplicationRecord
     numericality: {
       only_integer: true,
       greater_than: 0,
-      less_than: 100,
+      less_than: 200,
       allow_blank: true
     }
   validates :name, presence: true,

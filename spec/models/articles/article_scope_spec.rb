@@ -20,7 +20,7 @@ RSpec.describe 'ArticleScope', type: :model do
       expect(Article.visible).to include(article_1, article_2)
     end
 
-    it '(released_at <= ?, now)かつ(expired_at > ? OR expired_at IS NULL , now)の記事は検索されない' do
+    it '(released_at <= ?, now)かつ(expired_at > ? OR expired_at IS NULL , now)でない記事は検索されない' do
       expect(Article.visible).to_not include(article_3)
     end
   end

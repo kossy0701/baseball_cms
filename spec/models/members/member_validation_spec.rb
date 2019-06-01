@@ -26,7 +26,7 @@ RSpec.describe 'MemberValidation', type: :model do
       it '0-100以外の数値の場合エラーになる' do
         member = Member.new number: 200, name: 'Taro', full_name: '田中太郎', email: 'taro@example.com', sex: nil, administrator: [true, false].sample, password: nil, password_digest: '12345678'
         member.valid?
-        expect(member.errors[:number]).to include('は100より小さい値にしてください')
+        expect(member.errors[:number]).to include('は200より小さい値にしてください')
       end
     end
   end

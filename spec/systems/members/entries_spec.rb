@@ -5,7 +5,7 @@ describe 'ブログ管理機能', type: :system, js: true do
     let(:member_1) { create :member, administrator: false }
     let(:member_2) { create :member, administrator: false }
     let(:entry_1) { create :entry, member_id: member_1.id, status: 'public' }
-    let(:entry_2) { create :entry, member_id: member_2.id, status: 'member_only' }
+    let(:entry_2) { create :entry, member_id: member_2.id }
 
     before do
       visit root_path
@@ -101,7 +101,7 @@ describe 'ブログ管理機能', type: :system, js: true do
   describe '未ログイン' do
     let(:member_1) { create :member, administrator: false }
     let(:member_2) { create :member, administrator: false }
-    let(:entry_1) { create :entry, member_id: member_1.id }
+    let(:entry_1) { create :entry, member_id: member_1.id, status: 'public' }
     let(:entry_2) { create :entry, member_id: member_2.id }
 
     describe 'ブログ一覧表示機能' do
