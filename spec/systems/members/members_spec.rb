@@ -46,14 +46,14 @@ describe 'メンバー管理機能', type: :system do
 
   describe '未ログイン' do
     describe 'メンバー検索機能' do
-      it 'メンバーの検索結果が表示される' do
+      it 'ログインが必要ですと表示される' do
         visit members_path
         expect(page).to have_content 'ログインが必要です'
       end
     end
 
     describe 'メンバー一覧表示機能' do
-      it '会員一覧画面が表示される' do
+      it 'ログインが必要ですと表示される' do
         visit members_path
         expect(page).to have_content 'ログインが必要です'
       end
@@ -62,7 +62,7 @@ describe 'メンバー管理機能', type: :system do
     describe '会員詳細表示機能' do
       let(:member) { create :member }
 
-      it '会員の詳細が表示される' do
+      it 'ログインが必要ですと表示される' do
         visit member_path(member)
         expect(page).to have_content 'ログインが必要です'
       end
