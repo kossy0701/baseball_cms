@@ -19,4 +19,5 @@
     %th 会員限定
     %td= @article.member_only_display
 
-= render 'comment_form'
+- if current_member.present?
+  = render 'comment_form'

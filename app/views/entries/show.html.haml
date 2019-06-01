@@ -9,5 +9,7 @@
 = other_images(@entry)
 = render 'footer', entry: @entry
 = render "votes"
-= render 'comment_form'
+
+- if current_member.present?
+  = render 'comment_form'
 

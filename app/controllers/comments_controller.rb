@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
 
+  before_action :login_required
+
   def create
     if params[:article_id].present?
       @comment = ArticleComment.new(comment_params)
