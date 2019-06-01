@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_27_110308) do
+ActiveRecord::Schema.define(version: 2019_06_01_055325) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(version: 2019_05_27_110308) do
   end
 
   create_table "activity_logs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "log_type"
-    t.string "performer_type"
-    t.bigint "performer_id"
-    t.datetime "performed_at"
+    t.integer "log_type", null: false
+    t.string "performer_type", null: false
+    t.bigint "performer_id", null: false
+    t.datetime "performed_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -52,6 +52,21 @@ ActiveRecord::Schema.define(version: 2019_05_27_110308) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "commenter_id", null: false
+    t.string "commenter_type", null: false
+    t.bigint "article_id"
+    t.bigint "entry_id"
+    t.string "type", null: false
+    t.string "body", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_comments_on_article_id"
+    t.index ["commenter_id"], name: "index_comments_on_commenter_id"
+    t.index ["commenter_type"], name: "index_comments_on_commenter_type"
+    t.index ["entry_id"], name: "index_comments_on_entry_id"
+  end
+
   create_table "entries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "member_id", null: false
     t.string "title", null: false
@@ -64,7 +79,7 @@ ActiveRecord::Schema.define(version: 2019_05_27_110308) do
   end
 
   create_table "entry_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "entry_id"
+    t.bigint "entry_id", null: false
     t.string "alt_text", default: "", null: false
     t.integer "position"
     t.datetime "created_at", null: false

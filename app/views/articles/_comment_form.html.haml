@@ -1,0 +1,15 @@
+- @page_title = 'コメント'
+
+%h1= @page_title
+
+.comment-form-ids{:id => "comment-form-article-#{@article.id.to_s}"}
+  = form_with model: [@article, Comment.new], class: 'article-comment-form' do |f|
+    = f.hidden_field :commenter_id, value: current_member.id
+    = f.hidden_field :commenter_type, value: current_member.class
+    = f.hidden_field :article_id, value: @article.id
+    = f.text_field :body, class: "article-comment-form-field", placeholder: "コメント ...", autocomplete: :off
+    = f.submit '投稿する'
+
+%div{id: "comment-article-#{@article.id.to_s}"}
+  = render 'comment_list', { article: @article }
+

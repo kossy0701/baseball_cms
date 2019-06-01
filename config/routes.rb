@@ -9,10 +9,12 @@ Rails.application.routes.draw do
   end
 
   resources :articles, only: [:index, :show] do
+    resources :comments, only: :create
     get 'search', on: :collection
   end
 
   resources :entries do
+    resources :comments, only: :create
     patch 'like', 'unlike', on: :member
     get 'voted', on: :collection
     resources :images, controller: 'entry_images' do
@@ -31,6 +33,7 @@ Rails.application.routes.draw do
       get 'download', on: :collection, as: 'download'
     end
     resources :articles do
+      resources :comments, only: :create
       get 'search', on: :collection
     end
     resources :activity_logs, only: :index do

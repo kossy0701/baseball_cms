@@ -1,0 +1,8 @@
+<% if @article.present? %>
+  $('#comment-article-<%= @article.id.to_s %>').html('<%= j render "articles/comment_list", { article: @article } %>');
+  $('#comment-form-article-<%= @article.id.to_s %> #comment_body').val("");
+<% else %>
+  $('#comment-entry-<%= @entry.id.to_s %>').
+    html('<%= j render "entries/comment_list", { entry: @entry } %>');
+  $('#comment-form-entry-<%= @entry.id.to_s %> #comment_body').val("");
+<% end %>

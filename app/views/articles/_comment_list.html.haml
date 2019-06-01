@@ -1,0 +1,6 @@
+- article.article_comments.each do |comment|
+  .mb-2
+    %span
+      %strong
+        = comment.commenter.name
+    %span= comment.body

@@ -5,6 +5,7 @@ class Entry < ApplicationRecord
   has_many :images, class_name: 'EntryImage'
   has_many :votes, dependent: :destroy
   has_many :voters, through: :votes, source: :member
+  has_many :entry_comments, dependent: :destroy
 
   validates :title, presence: true, length: { maximum: 200 }
   validates :body, :posted_at, presence: true

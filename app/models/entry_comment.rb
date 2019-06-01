@@ -1,0 +1,3 @@
+class EntryComment < Comment
+
+end
