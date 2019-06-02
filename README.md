@@ -1,24 +1,44 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## アプリ概要
 
-Things you may want to cover:
+簡易的なCMSを作成してみました。
 
-* Ruby version
 
-* System dependencies
+## 言語・環境
 
-* Configuration
+- Ruby 2.5.1
+- Rails 5.2.3
+- jQuery
+- JavaScript
+- Mysql5.7
+- AWS S3
+- Production: AWS EC2(予定)
+- Beta: Heroku
 
-* Database creation
+## URL
+[Baseball CMS](https://baseball-cms-0421.herokuapp.com)
 
-* Database initialization
 
-* How to run the test suite
+### 管理者ユーザーログイン
+- name: Taro
+- password: 12345678
 
-* Services (job queues, cache servers, search engines, etc.)
+## デモ
+[demo](https://github.com/kossy0701/baseball_cms/blob/demo/demo.gif)
 
-* Deployment instructions
+## 実装機能
+- サインイン・アップ機能
+- メンバー・ニュース・ブログ投稿(CRUD)機能
+- 投票(いいね)機能
+- 画像アップロード機能
+- コメント機能
+- メンバー検索機能
+- ニュース検索機能
+- 管理者機能(namespace)
+- アクティビティロギング機能
+- remote: trueを用いた非同期通信機能
 
-* ...
+## テスト・継続的インテグレーション
+- Rspec(models, systems, decorators)
+- CircleCI
