@@ -3,7 +3,7 @@ class Admin::ActivityLogsController < Admin::Base
   before_action :admin_login_required
   after_action :create_download_csv_log, only: :download
   def index
-    @activity_logs = ActivityLog.order('created_at DESC').page(params[:page]).per(15)
+    @activity_logs = ActivityLog.includes(:performer).order('created_at DESC').page(params[:page]).per(15)
   end
 
   def download

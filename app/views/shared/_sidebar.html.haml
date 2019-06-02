@@ -6,7 +6,7 @@
   - articles.each do |article|
     %li= link_to article.title, article_path(article)
 %h2 会員のブログ
-- entries = Entry.readable_for(current_member).order(posted_at: :desc).limit(5)
+- entries = Entry.includes(:author).readable_for(current_member).order(posted_at: :desc).limit(5)
 %ul
   - entries.each do |entry|
     %li

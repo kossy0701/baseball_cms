@@ -10,7 +10,7 @@ class EntriesController < ApplicationController
       @entries = Entry.all
     end
 
-    @entries = @entries.readable_for(current_member).order(posted_at: :desc).page(params[:page]).per(5)
+    @entries = @entries.includes(:author).readable_for(current_member).order(posted_at: :desc).page(params[:page]).per(5)
   end
 
   def new
@@ -66,7 +66,7 @@ class EntriesController < ApplicationController
   end
 
   def voted
-    @entries = current_member.voted_entries.published.order('votes.created_at DESC').page(params[:page]).per(15)
+    @entries = current_member.voted_entries.published.includes(:author).order('votes.created_at DESC').page(params[:page]).per(15)
   end
 
   private

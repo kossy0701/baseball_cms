@@ -1,4 +1,4 @@
-- entry.entry_comments.each do |comment|
+- entry.entry_comments.includes(:commenter).each do |comment|
   .mb-2
     %span
       %strong
