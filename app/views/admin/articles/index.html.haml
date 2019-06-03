@@ -1,6 +1,6 @@
 - @page_title = 'ニュース記事一覧'
 
-= form_with url: 'articles/search', local: true, method: :get, class: 'article-search-form' do |f|
+= form_with url: search_admin_articles_path, local: true, method: :get, class: 'article-search-form' do |f|
   = f.text_field 'q', size: 25, placeholder: 'タイトルを入力してください', class: 'article-search-field'
   = f.submit '検索', class: 'article-search-form-submit'
 
