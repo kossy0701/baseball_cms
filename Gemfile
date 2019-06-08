@@ -46,6 +46,13 @@ group :development, :test do
   gem 'launchy'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+
+  # auto deploy
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
 end
 
 group :development do
