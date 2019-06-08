@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: baseball_cms_production
-  username: baseball_cms
-  password: <%= ENV['BASEBALL_CMS_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
