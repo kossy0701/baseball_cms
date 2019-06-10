@@ -13,11 +13,13 @@
 - JavaScript
 - Mysql5.7
 - AWS S3
-- Production: AWS EC2(予定)
+- Production: AWS EC2
 - Beta: Heroku
+- Route53
+
 
 ## URL
-[Baseball CMS](https://baseball-cms-0421.herokuapp.com)
+[Baseball CMS](http://www.baseball-cms.com)
 
 
 ### 管理者ユーザーログイン
