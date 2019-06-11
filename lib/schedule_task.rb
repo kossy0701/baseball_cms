@@ -1,6 +1,6 @@
 module ScheduleTask
 
-  def add_entries
+  def self.add_entries
     body =
       "河川敷クリーナーズ見事勝利！ということで、\n\n" +
       "祝勝会を都内某所にて行ってきました。" +
