@@ -14,7 +14,7 @@ set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 set :keep_releases, 5
 
-set :whenever_command, 'bundle exec whenever'
+set :whenever_command, [:bundle, :exec, :whenever]
 
 set :linked_files, fetch(:linked_files, []).push('config/master.key')
 
