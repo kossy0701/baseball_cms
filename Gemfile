@@ -16,7 +16,7 @@ gem 'mini_magick', '~> 4.8'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'erb2haml'
 gem 'haml-rails'
-gem 'email_validator', '~> 1.6'
+gem 'email_validator', '~> 2.0'
 gem 'rails-i18n', '~> 5.1'
 gem 'kaminari'
 gem 'kaminari-i18n'
