@@ -16,6 +16,7 @@ Bundler.require(*Rails.groups)
 module BaseballCms
   class Application < Rails::Application
     config.load_defaults 5.2
+    config.autoload_paths += %W(#{config.root}/lib)
     config.generators.system_tests = nil
     config.time_zone = 'Tokyo'
     config.i18n.default_locale = :ja

@@ -25,6 +25,7 @@ gem 'acts_as_list'
 gem 'active_hash'
 gem 'draper'
 gem 'aws-sdk-s3', require: false
+gem 'whenever', require: false
 
 group :production do
   gem 'unicorn', '5.4.1'
