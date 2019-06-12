@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_01_055325) do
+ActiveRecord::Schema.define(version: 2019_06_12_121412) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -40,6 +40,10 @@ ActiveRecord::Schema.define(version: 2019_06_01_055325) do
     t.datetime "performed_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["log_type"], name: "index_activity_logs_on_log_type"
+    t.index ["performed_at"], name: "index_activity_logs_on_performed_at"
+    t.index ["performer_id"], name: "index_activity_logs_on_performer_id"
+    t.index ["performer_type"], name: "index_activity_logs_on_performer_type"
   end
 
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -50,6 +54,8 @@ ActiveRecord::Schema.define(version: 2019_06_01_055325) do
     t.boolean "member_only", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["released_at"], name: "index_articles_on_released_at"
+    t.index ["title"], name: "index_articles_on_title"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -65,6 +71,7 @@ ActiveRecord::Schema.define(version: 2019_06_01_055325) do
     t.index ["commenter_id"], name: "index_comments_on_commenter_id"
     t.index ["commenter_type"], name: "index_comments_on_commenter_type"
     t.index ["entry_id"], name: "index_comments_on_entry_id"
+    t.index ["type"], name: "index_comments_on_type"
   end
 
   create_table "entries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -76,6 +83,8 @@ ActiveRecord::Schema.define(version: 2019_06_01_055325) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["member_id"], name: "index_entries_on_member_id"
+    t.index ["status"], name: "index_entries_on_status"
+    t.index ["title"], name: "index_entries_on_title"
   end
 
   create_table "entry_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -85,6 +94,7 @@ ActiveRecord::Schema.define(version: 2019_06_01_055325) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["entry_id"], name: "index_entry_images_on_entry_id"
+    t.index ["position"], name: "index_entry_images_on_position"
   end
 
   create_table "members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -99,6 +109,8 @@ ActiveRecord::Schema.define(version: 2019_06_01_055325) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.integer "prefecture_id", null: false
+    t.index ["full_name"], name: "index_members_on_full_name"
+    t.index ["name"], name: "index_members_on_name"
   end
 
   create_table "votes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
