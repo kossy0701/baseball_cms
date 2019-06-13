@@ -130,7 +130,7 @@ GEM
       activemodel-serializers-xml (>= 1.0)
       activesupport (>= 5.0)
       request_store (>= 1.0)
-    email_validator (1.6.0)
+    email_validator (2.0.1)
       activemodel
     erb2haml (0.1.5)
       html2haml
@@ -380,7 +380,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   database_cleaner
   draper
-  email_validator (~> 1.6)
+  email_validator (~> 2.0)
   erb2haml
   factory_bot_rails
   faker
