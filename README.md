@@ -10,11 +10,11 @@
 - Rails 5.2.3
 - jQuery
 - JavaScript
-- Mysql5.7
+- Mysql 5.7
 - AWS S3
 - Production: AWS EC2
 - Beta: Heroku
-- Route53
+- Route 53
 - unicorn
 - nginx
 - capistrano
