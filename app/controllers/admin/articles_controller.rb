@@ -2,6 +2,9 @@ class Admin::ArticlesController < Admin::Base
 
   before_action :admin_login_required
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  after_action :create_article_log, only: :create
+  after_action :remove_article_log, only: :destroy
+
 
   def index
     @articles = Article.order(released_at: :desc).page(params[:page]).per(15)
@@ -58,6 +61,14 @@ class Admin::ArticlesController < Admin::Base
 
   def article_search_params
     params.permit(:title)
+  end
+
+  def create_article_log
+    ActivityLog.create! log_type: :create_article, performer: current_member, performed_at: Time.now, performed_title: @article.title
+  end
+
+  def remove_article_log
+    ActivityLog.create! log_type: :remove_article, performer: current_member, performed_at: Time.now, performed_title: @article.title
   end
 
 end

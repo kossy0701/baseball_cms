@@ -1,5 +1,3 @@
-require 'csv'
-
 class Member < ApplicationRecord
 
   attr_accessor :current_password

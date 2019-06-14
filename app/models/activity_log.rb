@@ -1,13 +1,13 @@
-require 'csv'
-
 class ActivityLog < ApplicationRecord
+
+  LOG_TYPE_VALUES = ['login', 'logout', 'member_csv', 'log_csv', 'create_entry', 'remove_entry', 'create_article', 'remove_article']
 
   belongs_to :performer, polymorphic: true
 
-  enum log_type: [:login, :logout, :member_csv, :log_csv]
+  enum log_type: [:login, :logout, :member_csv, :log_csv, :create_entry, :remove_entry, :create_article, :remove_article]
 
   validates :performer, presence: true
-  validates :log_type, presence: true, inclusion: { in: ['login', 'logout', 'member_csv', 'log_csv'] }
+  validates :log_type, presence: true, inclusion: { in: LOG_TYPE_VALUES }
   validates :performed_at, presence: true
 
   def self.generate_csv

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_12_121412) do
+ActiveRecord::Schema.define(version: 2019_06_14_125457) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -40,8 +40,10 @@ ActiveRecord::Schema.define(version: 2019_06_12_121412) do
     t.datetime "performed_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "performed_title"
     t.index ["log_type"], name: "index_activity_logs_on_log_type"
     t.index ["performed_at"], name: "index_activity_logs_on_performed_at"
+    t.index ["performed_title"], name: "index_activity_logs_on_performed_title"
     t.index ["performer_id"], name: "index_activity_logs_on_performer_id"
     t.index ["performer_type"], name: "index_activity_logs_on_performer_type"
   end

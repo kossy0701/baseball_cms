@@ -1,6 +1,8 @@
 class EntriesController < ApplicationController
 
   before_action :login_required, except: [:index, :show]
+  after_action :create_entry_log, only: :create
+  after_action :remove_entry_log, only: :destroy
 
   def index
     if params[:member_id]
@@ -73,6 +75,14 @@ class EntriesController < ApplicationController
 
   def entry_permit_params
     params.require(:entry).permit(:member_id, :title, :body, :posted_at, :status)
+  end
+
+  def create_entry_log
+    ActivityLog.create! log_type: :create_entry, performer: current_member, performed_at: Time.now, performed_title: @entry.title
+  end
+
+  def remove_entry_log
+    ActivityLog.create! log_type: :remove_entry, performer: current_member, performed_at: Time.now, performed_title: @entry.title
   end
 
 end
