@@ -19,7 +19,7 @@ describe 'ニュース記事管理機能', type: :system do
 
       it 'ニュース記事の一覧が表示される' do
         visit articles_path
-        expect(page).to have_content '練習試合'
+        expect(page).to_not have_content '記事がありません'
       end
     end
 

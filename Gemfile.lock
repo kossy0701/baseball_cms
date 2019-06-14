@@ -207,6 +207,7 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.11.3)
     msgpack (1.2.10)
+    multi_json (1.13.1)
     mysql2 (0.5.2)
     net-scp (2.0.0)
       net-ssh (>= 2.6.5, < 6.0.0)
@@ -273,6 +274,8 @@ GEM
     regexp_parser (1.5.1)
     request_store (1.4.1)
       rack (>= 1.4)
+    rollbar (2.20.1)
+      multi_json
     rspec-core (3.8.0)
       rspec-support (~> 3.8.0)
     rspec-expectations (3.8.4)
@@ -402,6 +405,7 @@ DEPENDENCIES
   rails (~> 5.2.3)
   rails-erd
   rails-i18n (~> 5.1)
+  rollbar
   rspec-rails
   sass-rails (~> 5.0)
   selenium-webdriver
