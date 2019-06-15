@@ -48,7 +48,8 @@
 ## テスト・継続的インテグレーション
 - Rspec(models, systems, decorators)
 - CircleCI
-- dependabot
+- dependabot(依存パッケージを更新するサービス)[HP](https://dependabot.com/)
+- rollbar(エラー通知サービス)[HP](https://rollbar.com)
 
 ## 工夫した点
 - FatModelを避けるためにdraperを採用し、モデルに書きがちなビューのロジックを集約
