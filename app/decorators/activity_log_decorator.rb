@@ -6,7 +6,7 @@ class ActivityLogDecorator < Draper::Decorator
     { login: 'ログイン', logout: 'ログアウト',
       member_csv: 'メンバー CSV DL', log_csv: 'ログ CSV DL',
       create_entry: "ブログ: 「#{performed_title}」 の作成", remove_entry: "ブログ: 「#{performed_title}」 の削除",
-      create_article: "ニュース:「 #{performed_title}」 の作成", remove_article: "ニュース: 「#{performed_title}」 の削除"
+      create_article: "ニュース: 「#{performed_title}」 の作成", remove_article: "ニュース: 「#{performed_title}」 の削除"
     }[log_type.to_sym]
   end
 
