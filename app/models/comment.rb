@@ -5,4 +5,9 @@ class Comment < ApplicationRecord
   belongs_to :entry, optional: true
 
   validates :body, presence: true
+
+  def commented_date
+    created_at.strftime('%Y/%m/%d %H:%M')
+  end
+
 end

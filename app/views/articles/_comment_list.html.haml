@@ -1,6 +1,7 @@
 - article.article_comments.includes(:commenter).each do |comment|
-  .mb-2
+  .comment-detail
     %span
       %strong
         = comment.commenter.name
     %span= comment.body
+    %span= comment.commented_date
