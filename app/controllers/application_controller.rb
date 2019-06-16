@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   class LoginRequired < StandardError; end
   class Forbidden < StandardError; end
 
-  if Rails.env.production? || Rails.env.test? || ENV['RSUCUE_EXCEPTIONS']
+  if Rails.env.production? || Rails.env.test? || ENV['RESCUE_EXCEPTIONS']
     rescue_from StandardError, with: :rescue_internal_server_error
     rescue_from ActiveRecord::RecordNotFound, with: :rescue_not_found
     rescue_from ActionController::ParameterMissing, with: :rescue_bad_request
