@@ -8,8 +8,7 @@ RSpec.describe MemberDecorator, type: :decorator do
         subject { member.decorate }
 
         it '男と表示される' do
-          sex = subject.show_sex
-          expect(sex).to eq '男'
+          expect(subject.show_sex).to eq '男'
         end
       end
 
@@ -18,8 +17,7 @@ RSpec.describe MemberDecorator, type: :decorator do
         subject { member.decorate }
 
         it '女と表示される' do
-          sex = subject.show_sex
-          expect(sex).to eq '女'
+          expect(subject.show_sex).to eq '女'
         end
       end
     end

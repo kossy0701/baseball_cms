@@ -26,7 +26,6 @@ gem 'active_hash'
 gem 'draper'
 gem 'aws-sdk-s3', require: false
 gem 'whenever', require: false
-gem 'rollbar'
 
 group :production do
   gem 'unicorn', '5.5.1'
