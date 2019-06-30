@@ -44,7 +44,7 @@ RSpec.describe 'EntryValidation', type: :model do
     describe 'inclusion: { in: STATUS_VALUES }' do
       it 'STATUS_VALUESの値であればtrueが返る' do
         entry = Entry.new title: '河川敷クリーナーズ が 6 - 4 で勝ちました。', body: '河川敷クリーナーズ が 6 - 4 で勝ちました。', posted_at: Date.today, status: 'draft', member_id: member.id
-        expect(entry.valid?).to eq true
+        expect(entry.valid?).to be_truthy
       end
     end
   end
