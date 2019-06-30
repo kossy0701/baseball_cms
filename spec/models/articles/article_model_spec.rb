@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'ArticleSModel', type: :model do
+RSpec.describe 'ArticleModel', type: :model do
   describe 'def no_expiration' do
     it 'expired_atがnilの場合trueを返す' do
       article = Article.new title: '練習試合の結果', body: "#{'河川敷クリーナーズ が 6 - 4 で勝ちました。' * 100}", released_at: Date.today, member_only: false, expired_at: nil
