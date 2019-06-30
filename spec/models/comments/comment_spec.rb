@@ -18,7 +18,7 @@ RSpec.describe Comment, type: :model do
       it '%Y/%m/%d %H:%Mの形式で表示される' do
         comment = ArticleComment.new commenter: member, article: article, body: 'コメント'
         comment.save!
-        date = Time.now.strftime('%Y/%m/%d %H:%M')
+        date = Time.now.localtime.strftime('%Y/%m/%d %H:%M')
         expect(comment.commented_date).to eq date
       end
     end
