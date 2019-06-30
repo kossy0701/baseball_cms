@@ -9,7 +9,6 @@ class ActivityLog < ApplicationRecord
   validates :performer, presence: true
   validates :log_type, presence: true, inclusion: { in: LOG_TYPE_VALUES }
   validates :performed_at, presence: true
-  validates :performed_title, presence: true
 
   def self.generate_csv
     data = ['ユーザー名', '日時', 'ログ']

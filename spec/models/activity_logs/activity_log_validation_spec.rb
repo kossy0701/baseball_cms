@@ -41,14 +41,4 @@ RSpec.describe 'ActivityLogValidation', type: :model do
       end
     end
   end
-
-  describe 'performed_title' do
-    describe 'presence: true' do
-      it 'performed_titleがblankの場合エラーになる' do
-        activity_log = ActivityLog.new log_type: :login, performer: member, performed_at: Time.now, performed_title: nil
-        activity_log.valid?
-        expect(activity_log.errors[:performed_title]).to include('を入力してください')
-      end
-    end
-  end
 end
