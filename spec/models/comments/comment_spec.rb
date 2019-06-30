@@ -12,15 +12,4 @@ RSpec.describe Comment, type: :model do
       end
     end
   end
-
-  describe 'method' do
-    describe 'def commented_date' do
-      it '%Y/%m/%d %H:%Mの形式で表示される' do
-        comment = ArticleComment.new commenter: member, article: article, body: 'コメント'
-        comment.save!
-        date = Time.now.localtime.strftime('%Y/%m/%d %H:%M')
-        expect(comment.commented_date).to eq date
-      end
-    end
-  end
 end
