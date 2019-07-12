@@ -12,7 +12,7 @@ gem 'coffee-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
-gem 'mini_magick', '~> 4.8'
+gem 'mini_magick', '~> 4.9'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'erb2haml'
 gem 'haml-rails'
