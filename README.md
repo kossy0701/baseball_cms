@@ -12,19 +12,12 @@
 - JavaScript
 - Mysql 5.7
 - AWS S3
-- Production: AWS EC2
+- Production: AWS EC2(お金かかるからやめた)
 - Beta: Heroku
-- Route 53
+- Route 53(お金かかるからやm)
 - unicorn
 - nginx
 - capistrano
-
-## URL
-[Baseball CMS](http://www.baseball-cms.com)
-
-### 管理者ユーザーログイン
-- name: Taro
-- password: 12345678
 
 ## デモ
 [demo](https://github.com/kossy0701/baseball_cms/blob/demo/demo.gif)
