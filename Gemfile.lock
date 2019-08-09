@@ -229,7 +229,7 @@ GEM
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
     public_suffix (3.1.1)
-    puma (4.0.1)
+    puma (4.1.0)
       nio4r (~> 2.0)
     rack (2.0.7)
     rack-test (1.1.0)
@@ -398,7 +398,7 @@ DEPENDENCIES
   pry-doc
   pry-rails
   pry-stack_explorer
-  puma (~> 4.0)
+  puma (~> 4.1)
   rails (~> 5.2.3)
   rails-erd
   rails-i18n (~> 5.1)
