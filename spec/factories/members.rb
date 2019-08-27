@@ -1,7 +1,7 @@
 FactoryBot.define do
   s1 = Date.parse("1960/01/01")
   s2 = Date.parse("1999/12/31")
-  password = Faker::Internet.password(8)
+  password = Faker::Internet.password(max_length: 8)
   factory :member do
     number { rand(1..199) }
     name { ['Taro', 'Joe', 'Tom', 'Hana', 'Smith', 'Carry', 'Pasta', 'Burg', 'Shoe', 'Kiith', 'Michel', 'Adam', 'Ive', 'Sadam', 'Rovin', 'Kevin'].sample }
