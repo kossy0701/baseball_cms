@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
-gem 'rails', '~> 5.2.3'
+gem 'rails', '~> 6.0.0'
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 gem 'puma', '~> 4.1'
 gem 'sass-rails', '~> 6.0'
@@ -17,7 +17,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'erb2haml'
 gem 'haml-rails'
 gem 'email_validator', '~> 2.0'
-gem 'rails-i18n', '~> 5.1'
+gem 'rails-i18n', '~> 6.0'
 gem 'kaminari'
 gem 'kaminari-i18n'
 gem 'jquery-rails'
