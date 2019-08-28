@@ -29,4 +29,28 @@ describe 'ActivityLog API', type: :request do
       end
     end
   end
+
+  describe '一般ユーザー' do
+    let(:member) { create :member, administrator: false }
+
+    before do
+      post session_url, params: { name: member.name, password: member.password }
+    end
+
+    describe 'index' do
+      it '403 Forbidden' do
+        get admin_activity_logs_path
+
+        expect(response.status).to eq 403
+      end
+    end
+
+    describe 'download' do
+      it '403 Forbidden' do
+        get download_admin_activity_logs_path(format: :csv)
+
+        expect(response.status).to eq 403
+      end
+    end
+  end
 end
