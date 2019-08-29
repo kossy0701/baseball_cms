@@ -35,11 +35,11 @@
 - アクティビティロギング機能
 - CSV出力機能(メンバー、アクティビティログ)
 - remote: trueを用いた非同期通信機能(js.erb)
-- 画像アップロード時のプレビュー表示機能
+- 画像アップロード時のプレビュー表示機能(jQuery)
 - wheneverを用いたcron定期実行機能
 
 ## テスト・継続的インテグレーション
-- Rspec(models, systems, decorators)
+- Rspec(models, requests, systems, decorators)
 - CircleCI
 - dependabot(依存パッケージを更新するサービス)[HP](https://dependabot.com/)
 - rollbar(エラー通知サービス、今は使ってない)[HP](https://rollbar.com)
