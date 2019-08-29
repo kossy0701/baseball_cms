@@ -21,6 +21,7 @@ class EntriesController < ApplicationController
 
   def create
     @entry = Entry.new(entry_permit_params)
+    @entry.author = current_member
     if @entry.save
       redirect_to entry_path(@entry), notice: 'ブログを作成しました'
     else
@@ -73,7 +74,7 @@ class EntriesController < ApplicationController
   private
 
   def entry_permit_params
-    params.require(:entry).permit(:member_id, :title, :body, :posted_at, :status).merge(author: current_member)
+    params.require(:entry).permit(:member_id, :title, :body, :posted_at, :status)
   end
 
   def create_entry_log

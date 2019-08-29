@@ -15,21 +15,5 @@ describe 'Article API', type: :request do
         expect(response.status).to eq 200
       end
     end
-
-    describe 'new' do
-      it '200 OK' do
-        get new_admin_article_path
-
-        expect(response.status).to eq 200
-      end
-    end
-
-    describe 'create' do
-      it '302 Found' do
-        post '/admin/articles', params: { article: { title: 'test', body: 'succeess!', released_at: Date.today, no_expiration: false, member_only: false } }
-
-        expect(response.status).to eq 302
-      end
-    end
   end
 end
