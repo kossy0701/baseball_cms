@@ -25,3 +25,6 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+/config/google_drive_token.yaml
+/config/google_drive_credentials.json

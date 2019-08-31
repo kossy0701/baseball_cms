@@ -4,5 +4,5 @@ set :environment, rails_env
 set :output, "#{Rails.root}/log/cron.log"
 
 every :week, at: '0:00' do
-  runner 'ScheduleTask.add_entries'
+  runner 'ScheduleTask.export_members'
 end

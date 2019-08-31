@@ -1,25 +1,19 @@
 module ScheduleTask
 
-  def self.add_entries
-    body =
-      "河川敷クリーナーズ見事勝利！ということで、\n\n" +
-      "祝勝会を都内某所にて行ってきました。" +
-      "皆さんと焼肉を美味しく頂きました。" +
-      "チームの調子がいいのは嬉しいのですが、\n\n" +
-      "財布の調子はあまりよくありません、、、笑"
-
-    %w(Taro Jiro Hana).each do |name|
-      member = Member.find_by(name: name)
-      0.upto(3) do |idx|
-        entry = Entry.create(
-          author: member,
-          title: "河川敷クリーナーズ勝利#{idx}",
-          body: body,
-          posted_at: 10.days.ago.advance(days: idx),
-          status: %w(draft member_only public)[idx % 3]
-        )
-      end
+  def self.export_members
+    data = [['背番号', 'ユーザー名', '氏名', 'メールアドレス', '誕生日', '性別', '出身地']]
+    Member.all.decorate.each do |member|
+      data << [
+        member.number,
+        member.name,
+        member.full_name,
+        member.email,
+        member.birthday,
+        member.show_sex,
+        member.prefecture.name
+      ]
     end
+    GoogleDriveClient.instance.update_sheets data, spreadsheet_id: "#{Rails.application.credentials.dig(:spread_sheet_id)}", sheet_name: 'メンバー一覧'
   end
 
 end
