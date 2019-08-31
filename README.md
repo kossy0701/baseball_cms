@@ -37,6 +37,7 @@
 - remote: trueを用いた非同期通信機能(js.erb)
 - 画像アップロード時のプレビュー表示機能(jQuery)
 - wheneverを用いたcron定期実行機能
+- [スプレッドシートへの定期出力機能](https://docs.google.com/spreadsheets/d/1L4a7lh1z-90pidXZXCFOTSkrAA9ShjLeh_8ANqBWP_w)
 
 ## テスト・継続的インテグレーション
 - Rspec(models, requests, systems, decorators)
