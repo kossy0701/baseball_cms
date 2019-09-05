@@ -1,5 +1,4 @@
 class Article < ApplicationRecord
-
   has_many :article_comments, dependent: :destroy
 
   validates :title, :body, :released_at, presence: true
@@ -11,17 +10,15 @@ class Article < ApplicationRecord
   end
 
   validate do
-    if expired_at && expired_at < released_at
-      errors.add(:expired_at, :expired_at_too_old)
-    end
+    errors.add(:expired_at, :expired_at_too_old) if expired_at && expired_at < released_at
   end
 
   scope :open_to_the_public, -> { where(member_only: false) }
 
-  scope :visible, -> do
+  scope :visible, lambda {
     now = Time.now
-    where('released_at <= ?', now).where('expired_at > ? OR expired_at IS NULL' , now)
-  end
+    where('released_at <= ?', now).where('expired_at > ? OR expired_at IS NULL', now)
+  }
 
   def no_expiration
     expired_at.nil?
@@ -30,5 +27,4 @@ class Article < ApplicationRecord
   def no_expiration=(val)
     @no_expiration = val.in?([true, '1'])
   end
-
 end

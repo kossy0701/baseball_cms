@@ -1,5 +1,4 @@
 class EntryDecorator < Draper::Decorator
-
   delegate_all
 
   def self.status_text(status)
@@ -13,5 +12,4 @@ class EntryDecorator < Draper::Decorator
   def posted_date
     posted_at.strftime('%Y/%m/%d %H:%M')
   end
-
 end

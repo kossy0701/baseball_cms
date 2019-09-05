@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   def page_title
     title = 'Baseball CMS'
     title = @page_title + ' - ' + title if @page_title
@@ -15,5 +14,4 @@ module ApplicationHelper
       end
     end
   end
-
 end

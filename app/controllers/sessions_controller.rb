@@ -19,7 +19,6 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
-
   private
 
   def create_login_log
@@ -39,5 +38,4 @@ class SessionsController < ApplicationController
       ActivityLog.create! log_type: :logout, performer: @old_resource, performed_at: Time.now
     end
   end
-
 end

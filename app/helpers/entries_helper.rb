@@ -1,5 +1,4 @@
 module EntriesHelper
-
   def the_first_image(entry)
     image = entry.images.order(:position)[0]
 
@@ -23,5 +22,4 @@ module EntriesHelper
       image_tag image.data.variant(resize: '530x>'), alt: image.alt_text, style: 'display: block; margin: 0 auto 15px'
     end
   end
-
 end

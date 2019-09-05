@@ -1,5 +1,4 @@
 class Admin::Base < ApplicationController
-
   before_action :admin_login_required
 
   private
@@ -7,5 +6,4 @@ class Admin::Base < ApplicationController
   def admin_login_required
     raise Forbidden unless current_member&.administrator?
   end
-
 end

@@ -4,7 +4,6 @@ class ArticleSearchForm
   attr_accessor :title
 
   def search(query)
-    rel = Article.where('title LIKE ? ', "%#{query}%")
+    Article.where('title LIKE ? ', "%#{query}%")
   end
-
 end

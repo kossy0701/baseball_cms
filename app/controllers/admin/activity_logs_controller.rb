@@ -1,5 +1,4 @@
 class Admin::ActivityLogsController < Admin::Base
-
   before_action :admin_login_required
   after_action :create_download_csv_log, only: :download
 
@@ -18,5 +17,4 @@ class Admin::ActivityLogsController < Admin::Base
   def create_download_csv_log
     ActivityLog.create! log_type: :log_csv, performer: current_member, performed_at: Time.now
   end
-
 end

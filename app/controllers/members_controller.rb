@@ -1,5 +1,4 @@
 class MembersController < ApplicationController
-
   before_action :login_required
   before_action :set_member, only: :show
 
@@ -8,8 +7,7 @@ class MembersController < ApplicationController
     @members = Member.order('number').page(params[:page]).per(15)
   end
 
-  def show
-  end
+  def show; end
 
   def search
     @member_search_form = MemberSearchForm.new member_search_params
@@ -27,6 +25,4 @@ class MembersController < ApplicationController
   def member_search_params
     params.permit(:name, :full_name)
   end
-
 end
-

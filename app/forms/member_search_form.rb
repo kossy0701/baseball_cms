@@ -4,7 +4,6 @@ class MemberSearchForm
   attr_accessor :name, :full_name
 
   def search(query)
-    rel = Member.where('name LIKE ? OR full_name LIKE ?', "%#{query}%", "%#{query}%")
+    Member.where('name LIKE ? OR full_name LIKE ?', "%#{query}%", "%#{query}%")
   end
-
 end

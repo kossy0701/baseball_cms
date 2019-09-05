@@ -1,5 +1,4 @@
 class EntryImagesController < ApplicationController
-
   before_action :login_required
   before_action :set_entry_image
 
@@ -54,7 +53,6 @@ class EntryImagesController < ApplicationController
     @image = @entry.images.find params[:id]
     @image.move_lower
     redirect_back fallback_location: entry_images_path
-
   end
 
   private
@@ -66,5 +64,4 @@ class EntryImagesController < ApplicationController
   def image_params
     params.require(:entry_image).permit(:new_data, :alt_text)
   end
-
 end

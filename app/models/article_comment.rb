@@ -1,3 +1,2 @@
 class ArticleComment < Comment
-
 end

@@ -1,7 +1,6 @@
 class Admin::MembersController < Admin::Base
-
   before_action :admin_login_required
-  before_action :set_member, only: [:show, :edit, :update, :destroy]
+  before_action :set_member, only: %i[show edit update destroy]
   after_action :create_download_csv_log, only: :download
 
   def index
@@ -24,11 +23,9 @@ class Admin::MembersController < Admin::Base
     end
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @member.update member_permit_params
@@ -41,13 +38,13 @@ class Admin::MembersController < Admin::Base
   end
 
   def destroy
-    unless @member.id == current_member.id
+    if @member.id == current_member.id
+      flash.now[:alert] = '自分のアカウントは削除できません'
+      render :show
+    else
       @member.destroy
       flash[:notice] = '会員を削除しました'
       redirect_to admin_members_path
-    else
-      flash.now[:alert] = '自分のアカウントは削除できません'
-      render :show
     end
   end
 
@@ -75,13 +72,12 @@ class Admin::MembersController < Admin::Base
   end
 
   def member_permit_params
-    attrs = [:new_profile_picture, :remove_profile_picture, :number, :name, :full_name, :sex, :birthday, :prefecture_id, :email, :administrator]
-    attrs << [:password, :password_confirmation] if params[:action] == 'create'
+    attrs = %i[new_profile_picture remove_profile_picture number name full_name sex birthday prefecture_id email administrator]
+    attrs << %i[password password_confirmation] if params[:action] == 'create'
     params.require(:member).permit(attrs)
   end
 
   def create_download_csv_log
     ActivityLog.create! log_type: :member_csv, performer: current_member, performed_at: Time.now
   end
-
 end

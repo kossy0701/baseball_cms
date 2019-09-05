@@ -5,11 +5,11 @@ require 'googleauth/stores/file_token_store'
 class GoogleDriveClient
   include Singleton
 
-  OOB_URI = 'urn:ietf:wg:oauth:2.0:oob'
+  OOB_URI = 'urn:ietf:wg:oauth:2.0:oob'.freeze
   CREDENTIALS_PATH = Rails.root + 'config/google_drive_credentials.json'
   TOKEN_PATH = Pathname.new Rails.root + 'config/google_drive_token.yaml'
   SCOPE = Google::Apis::SheetsV4::AUTH_SPREADSHEETS
-  APPLICATION_NAME = 'Baseball CMS'
+  APPLICATION_NAME = 'Baseball CMS'.freeze
 
   def initialize
     @service = Google::Apis::SheetsV4::SheetsService.new

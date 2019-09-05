@@ -1,5 +1,4 @@
 class MemberDecorator < Draper::Decorator
-
   delegate_all
 
   def show_sex
@@ -7,7 +6,7 @@ class MemberDecorator < Draper::Decorator
   end
 
   def administrate_display
-    administrator == true  ? '○' : '－'
+    administrator == true ? '○' : '－'
   end
 
   def show_birthday
@@ -16,7 +15,6 @@ class MemberDecorator < Draper::Decorator
 
   def age
     date = Date.today
-    ((date.strftime('%Y%m%d').to_i - birthday.strftime('%Y%m%d').to_i) / 10000).to_s + '歳'
+    ((date.strftime('%Y%m%d').to_i - birthday.strftime('%Y%m%d').to_i) / 10_000).to_s + '歳'
   end
-
 end

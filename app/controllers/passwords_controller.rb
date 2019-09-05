@@ -1,14 +1,12 @@
 class PasswordsController < ApplicationController
-
   before_action :login_required
-  before_action :set_member, only: [:edit, :update]
+  before_action :set_member, only: %i[edit update]
 
   def show
     redirect_to account_path
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     current_password = account_params[:current_password]
@@ -40,5 +38,4 @@ class PasswordsController < ApplicationController
   def account_params
     params.require(:account).permit(:current_password, :password, :password_confirmation)
   end
-
 end

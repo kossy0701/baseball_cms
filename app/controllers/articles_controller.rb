@@ -1,5 +1,4 @@
 class ArticlesController < ApplicationController
-
   def index
     @articles = Article.visible.order(released_at: :desc)
     @articles = @articles.open_to_the_public unless current_member
@@ -8,7 +7,7 @@ class ArticlesController < ApplicationController
 
   def show
     articles = Article.visible
-    articles = articles.open_to_the_public unless current_member
+    articles.open_to_the_public unless current_member
     @article = Article.find(params[:id]).decorate
   end
 
@@ -24,5 +23,4 @@ class ArticlesController < ApplicationController
   def article_search_params
     params.permit(:title)
   end
-
 end

@@ -1,0 +1,30 @@
+AllCops:
+  Exclude:
+    - bin/*
+    - vendor/**/*
+    - db/**/*
+    - spec/**/*
+    - lib/tasks/**/*
+    - config/routes.rb
+    - config/environments/**/*
+    - config/initializers/**/*
+Metrics/MethodLength:
+  Max: 20
+Metrics/LineLength:
+  Max: 150
+Metrics/AbcSize:
+  Max: 20
+Style/Documentation:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+Style/DoubleNegation:
+  Enabled: false
+Naming/AsciiIdentifiers:
+  Enabled: false
+Naming/AccessorMethodName:
+  Enabled: false
+Security/Open:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false

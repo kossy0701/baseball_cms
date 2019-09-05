@@ -1,6 +1,5 @@
 class EntriesController < ApplicationController
-
-  before_action :login_required, except: [:index, :show]
+  before_action :login_required, except: %i[index show]
   after_action :create_entry_log, only: :create
   after_action :remove_entry_log, only: :destroy
 
@@ -62,7 +61,7 @@ class EntriesController < ApplicationController
   end
 
   def unlike
-    current_member.voted_entries.destroy(Entry.find params[:id])
+    current_member.voted_entries.destroy(Entry.find(params[:id]))
     redirect_to voted_entries_path, notice: '投票を取り消しました'
   end
 
@@ -83,5 +82,4 @@ class EntriesController < ApplicationController
   def remove_entry_log
     ActivityLog.create! log_type: :remove_entry, performer: current_member, performed_at: Time.now, performed_title: @entry.title
   end
-
 end

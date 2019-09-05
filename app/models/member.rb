@@ -1,5 +1,4 @@
 class Member < ApplicationRecord
-
   attr_accessor :current_password
 
   extend ActiveHash::Associations::ActiveRecordExtensions
@@ -21,18 +20,18 @@ class Member < ApplicationRecord
   enum sex: { male: 1, female: 2 }
 
   validates :number, presence: true,
-    uniqueness: true,
-    numericality: {
-      only_integer: true,
-      greater_than: 0,
-      less_than: 200,
-      allow_blank: true
-    }
+                     uniqueness: true,
+                     numericality: {
+                       only_integer: true,
+                       greater_than: 0,
+                       less_than: 200,
+                       allow_blank: true
+                     }
   validates :name, presence: true,
-    format: { with: /\A[A-Za-z][A-Za-z0-9]*\z/, allow_blank: true },
-    length: { minimum: 2, maximum: 20, allow_blank: true }
+                   format: { with: /\A[A-Za-z][A-Za-z0-9]*\z/, allow_blank: true },
+                   length: { minimum: 2, maximum: 20, allow_blank: true }
   validates :full_name, presence: true, length: { maximum: 20 }
-  validates :sex, presence: true, inclusion: { in: ['male', 'female'] }
+  validates :sex, presence: true, inclusion: { in: %w[male female] }
   validates :email, email: { allow_blank: true }
   validates :password, presence: { if: :current_password }
 
@@ -40,15 +39,13 @@ class Member < ApplicationRecord
     if new_profile_picture
       self.profile_picture = new_profile_picture
     elsif remove_profile_picture
-      self.profile_picture.purge
+      profile_picture.purge
     end
   end
 
   validate if: :new_profile_picture do
     if new_profile_picture.respond_to?(:content_type)
-      unless new_profile_picture.content_type.in?(ALLOWED_CONTENT_TYPES)
-        errors.add(:new_profile_picture, :invalid_image_type)
-      end
+      errors.add(:new_profile_picture, :invalid_image_type) unless new_profile_picture.content_type.in?(ALLOWED_CONTENT_TYPES)
     else
       errors.add(:new_profile_picture, :invalid)
     end
@@ -59,7 +56,7 @@ class Member < ApplicationRecord
   end
 
   def self.generate_csv
-    data = ['背番号', 'ユーザー名', '氏名', 'メールアドレス', '誕生日', '性別', '出身地']
+    data = %w[背番号 ユーザー名 氏名 メールアドレス 誕生日 性別 出身地]
     CSV.generate(headers: true) do |csv|
       csv << data
       all.decorate.each do |member|
@@ -75,5 +72,4 @@ class Member < ApplicationRecord
       end
     end
   end
-
 end

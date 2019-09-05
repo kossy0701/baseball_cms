@@ -1,5 +1,4 @@
 class ApplicationRecord < ActiveRecord::Base
-
   self.abstract_class = true
 
   ALLOWED_CONTENT_TYPES = [
@@ -7,6 +6,5 @@ class ApplicationRecord < ActiveRecord::Base
     'image/png',
     'image/gif',
     'image/bmp'
-  ]
-
+  ].freeze
 end

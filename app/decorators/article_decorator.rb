@@ -1,5 +1,4 @@
 class ArticleDecorator < Draper::Decorator
-
   delegate_all
 
   def released_date
@@ -13,5 +12,4 @@ class ArticleDecorator < Draper::Decorator
   def member_only_display
     member_only == true ? '○' : '－'
   end
-
 end

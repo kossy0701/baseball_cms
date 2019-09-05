@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-
   before_action :login_required
 
   def create
@@ -27,5 +26,4 @@ class CommentsController < ApplicationController
   def comment_params
     params.required(:comment).permit(:commenter_id, :commenter_type, :article_id, :entry_id, :body)
   end
-
 end

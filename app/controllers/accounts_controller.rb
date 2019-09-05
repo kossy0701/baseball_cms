@@ -1,14 +1,12 @@
 class AccountsController < ApplicationController
-
   before_action :login_required
-  before_action :set_member, only: [:edit, :update]
+  before_action :set_member, only: %i[edit update]
 
   def show
     @member = current_member.decorate
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     @member.assign_attributes account_params
@@ -29,5 +27,4 @@ class AccountsController < ApplicationController
   def account_params
     params.require(:account).permit(:new_profile_picture, :remove_profile_picture, :number, :name, :full_name, :sex, :birthday, :email)
   end
-
 end
