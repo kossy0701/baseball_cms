@@ -60,6 +60,7 @@
 
 ### membersテーブル
 |Column|Type|Options|
+|------|------|-----|
 |number|integer|null: false|
 |name|string|null: false, index: true|
 |full_name|string|index: true|
@@ -83,6 +84,7 @@ has_many :comments, as: :commenter, dependent: :destroy
 
 ### activity_logsテーブル
 |Column|Type|Options|
+|------|------|-----|
 |log_type|integer|null: false, index: true|
 |performer_type|string|null: false, polymophic: true, index: true|
 |performer_id|bigint|null: false, polymophic: true, index: true|
@@ -97,6 +99,7 @@ belongs_to :performer, polymorphic: true
 
 ### articlesテーブル
 |Column|Type|Options|
+|------|------|-----|
 |title|string|null: false, index: true|
 |body|text|null: false|
 |released_at|datetime|null: false, index: true|
@@ -111,6 +114,7 @@ has_many :article_comments, dependent: :destroy
 
 ### commentsテーブル
 |Column|Type|Options|
+|------|------|-----|
 |commenter_id|bigint|null: false, polymorphic: true, index: true|
 |commenter_type|string|null: false, polymorphic: true, index: true|
 |article_id|bigint|optional: true, index: true|
@@ -129,6 +133,7 @@ belongs_to :entry, optional: true
 
 ### entriesテーブル
 |Column|Type|Options|
+|------|------|-----|
 |member_id|bigint|null: false, index: true, foreign_key: true|
 |title|string|null: false, index: true|
 |text|body||
@@ -147,6 +152,7 @@ has_many :entry_comments, dependent: :destroy
 
 ### entry_imagesテーブル
 |Column|Type|Options|
+|------|------|-----|
 |entry_id|bigint|null: false, index: true|
 |alt_text|string|default: '', null: false|
 |position|integer|index: true|
@@ -159,6 +165,7 @@ belongs_to :entry
 
 ### votesテーブル
 |column|Type|Options|
+|------|------|-----|
 |entry_id|bigint|null: false, index: true|
 |member_id|bigint|null: false, index: true|
 
