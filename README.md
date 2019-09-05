@@ -42,6 +42,7 @@
 ## テスト・継続的インテグレーション
 - Rspec(models, requests, systems, decorators)
 - CircleCI
+- rubocop
 - dependabot(依存パッケージを更新するサービス)[HP](https://dependabot.com/)
 - rollbar(エラー通知サービス、今は使ってない)[HP](https://rollbar.com)
 
