@@ -58,30 +58,6 @@
 
 ## DB設計
 
-### membersテーブル
-|Column|Type|Options|
-|------|------|-----|
-|number|integer|null: false|
-|name|string|null: false, index: true|
-|full_name|string|index: true|
-|email|string||
-|birthday|date||
-|sex|integer|null: false|
-|administorator|boolean|null: false|
-|password_digest|string||
-|prefecture_id|integer|null: false|
-
-- association
-
-```
-belongs_to_active_hash :prefecture
-has_many :entries, dependent: :destroy
-has_many :votes, dependent: :destroy
-has_many :voted_entries, through: :votes, source: :entry
-has_many :activity_logs, as: :performer, dependent: :destroy
-has_many :comments, as: :commenter, dependent: :destroy
-```
-
 ### activity_logsテーブル
 |Column|Type|Options|
 |------|------|-----|
@@ -91,8 +67,7 @@ has_many :comments, as: :commenter, dependent: :destroy
 |performed_at|datetime|null: false, index: true|
 |performed_title|string|null: false, index: true|
 
-- association
-
+#### association
 ```
 belongs_to :performer, polymorphic: true
 ```
@@ -106,8 +81,7 @@ belongs_to :performer, polymorphic: true
 |expired_at|datetime||
 |member_only|boolean|default: false, null: false|
 
-- association
-
+#### association
 ```
 has_many :article_comments, dependent: :destroy
 ```
@@ -122,13 +96,11 @@ has_many :article_comments, dependent: :destroy
 |type|string|null: false, single_table_inheritance, index: true|
 |body|string|null: false|
 
-- association
-
+#### association
 ```
 belongs_to :commenter, polymorphic: true
 belongs_to :article, optional: true
 belongs_to :entry, optional: true
-
 ```
 
 ### entriesテーブル
@@ -140,7 +112,7 @@ belongs_to :entry, optional: true
 |posted_at|datetime|null: false|
 |status|string|default: 'draft', null: false, index: true|
 
-- association
+#### association
 
 ```
 belongs_to :author, class_name: 'Member', foreign_key: 'member_id'
@@ -157,10 +129,32 @@ has_many :entry_comments, dependent: :destroy
 |alt_text|string|default: '', null: false|
 |position|integer|index: true|
 
-- association
-
+#### association
 ```
 belongs_to :entry
+```
+
+### membersテーブル
+|Column|Type|Options|
+|------|------|-----|
+|number|integer|null: false|
+|name|string|null: false, index: true|
+|full_name|string|index: true|
+|email|string||
+|birthday|date||
+|sex|integer|null: false|
+|administorator|boolean|null: false|
+|password_digest|string||
+|prefecture_id|integer|null: false|
+
+#### association
+```
+belongs_to_active_hash :prefecture
+has_many :entries, dependent: :destroy
+has_many :votes, dependent: :destroy
+has_many :voted_entries, through: :votes, source: :entry
+has_many :activity_logs, as: :performer, dependent: :destroy
+has_many :comments, as: :commenter, dependent: :destroy
 ```
 
 ### votesテーブル
@@ -169,10 +163,8 @@ belongs_to :entry
 |entry_id|bigint|null: false, index: true|
 |member_id|bigint|null: false, index: true|
 
-- association
-
+#### association
 ```
 belongs_to :entry
 belongs_to :member
-
 ```
