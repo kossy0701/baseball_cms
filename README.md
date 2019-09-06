@@ -42,6 +42,7 @@
 ## テスト・継続的インテグレーション
 - Rspec(models, requests, systems, decorators)
 - CircleCI
+- rubocop
 - dependabot(依存パッケージを更新するサービス)[HP](https://dependabot.com/)
 - rollbar(エラー通知サービス、今は使ってない)[HP](https://rollbar.com)
 
@@ -55,6 +56,9 @@
 ## 苦労した点
 - capistranoでの自動デプロイの際にunicorn startでつまづき丸2日費やす。原因はmaster.keyをuploadする処理をしていなかった。
 - form_withの扱いに慣れておらず、modelオプションやurlオプションの使い分けで少し苦労した。
+
+## ER図
+[リンク](https://github.com/kossy0701/baseball_cms/blob/baseball_cms-erd/erd.png)
 
 ## DB設計
 

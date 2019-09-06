@@ -18,13 +18,5 @@ Style/Documentation:
   Enabled: false
 Style/ClassAndModuleChildren:
   Enabled: false
-Style/DoubleNegation:
-  Enabled: false
-Naming/AsciiIdentifiers:
-  Enabled: false
-Naming/AccessorMethodName:
-  Enabled: false
-Security/Open:
-  Enabled: false
 Style/FrozenStringLiteralComment:
   Enabled: false
