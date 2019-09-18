@@ -7,7 +7,7 @@
 ## 言語・環境
 
 - Ruby 2.5.1
-- Rails 5.2.3
+- Rails 5.2.3 => 6.0.0 upgraded
 - jQuery
 - JavaScript
 - Mysql 5.7
