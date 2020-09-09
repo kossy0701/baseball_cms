@@ -29,7 +29,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'whenever', require: false
 
 group :production do
-  gem 'unicorn', '5.5.1'
+  gem 'unicorn', '5.7.0'
 end
 
 group :development, :test do
